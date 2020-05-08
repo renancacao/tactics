@@ -2,7 +2,7 @@ package com.rcacao.tactics.data.skills.actions
 
 import com.rcacao.tactics.data.skills.*
 
-open class Action(
+abstract class Action(
     override val id: Int,
     override val name: String,
     override val description: String,
