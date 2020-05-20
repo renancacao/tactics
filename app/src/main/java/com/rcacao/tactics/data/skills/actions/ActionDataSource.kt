@@ -2,7 +2,7 @@ package com.rcacao.tactics.data.skills.actions
 
 import com.rcacao.tactics.data.jobs.JobId
 
-class LocalActionDataSource() {
+class ActionDataSource() {
 
     fun actions(jobId: JobId): List<Action> {
         return when (jobId) {

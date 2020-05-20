@@ -2,7 +2,7 @@ package com.rcacao.tactics.data.skills.reactions
 
 import com.rcacao.tactics.data.jobs.JobId
 
-class LocalReactionDataSource() {
+class ReactionDataSource() {
 
     fun reactions(jobId: JobId): List<Reaction> {
         return when (jobId) {

@@ -2,7 +2,7 @@ package com.rcacao.tactics.data.skills.support
 
 import com.rcacao.tactics.data.jobs.JobId
 
-class LocalSupportDataSource() {
+class SupportDataSource() {
 
     fun supports(jobId: JobId): List<Support> {
         return when (jobId) {

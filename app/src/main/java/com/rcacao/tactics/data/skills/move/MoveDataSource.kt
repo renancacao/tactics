@@ -2,7 +2,7 @@ package com.rcacao.tactics.data.skills.move
 
 import com.rcacao.tactics.data.jobs.JobId
 
-class LocalMoveDataSource() {
+class MoveDataSource() {
 
     fun moves(jobId: JobId): List<Move> {
         return when (jobId) {
