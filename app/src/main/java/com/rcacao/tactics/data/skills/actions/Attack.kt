@@ -1,7 +1,6 @@
 package com.rcacao.tactics.data.skills.actions
 
 import com.rcacao.tactics.data.skills.*
-import com.rcacao.tactics.data.skills.Target
 
 sealed class Attack(
     id: Int,
@@ -56,7 +55,7 @@ sealed class Attack(
         0,
         Type.NEUTRAL,
         Element.NONE,
-        com.rcacao.tactics.data.skills.damageCalculation.IMMUTABLE,
+        damageCalculation.IMMUTABLE,
         DamageFormula.Nothing,
         reflect = false,
         calc = false,
@@ -64,7 +63,7 @@ sealed class Attack(
         counterMagic = false,
         counterFlood = false,
         evade = false,
-        statsChange = listOf(StatsChange(Stats.PHYSICAL_ATTACK, 1, Target.CASTER)),
+        statsChange = listOf(StatsChange(Stats.PHYSICAL_ATTACK, 1, SkillTarget.CASTER)),
         otherEffects = emptyList(),
         statusEffects = emptyList()
     )
@@ -82,7 +81,7 @@ sealed class Attack(
         0,
         Type.PHYSICAL,
         Element.NONE,
-        com.rcacao.tactics.data.skills.damageCalculation.PHYSICAL_DAMAGE_VARIABLE,
+        damageCalculation.PHYSICAL_DAMAGE_VARIABLE,
         DamageFormula.PAVsRandom(1, 4),
         reflect = false,
         calc = false,
@@ -108,7 +107,7 @@ sealed class Attack(
         0,
         Type.PHYSICAL,
         Element.NONE,
-        com.rcacao.tactics.data.skills.damageCalculation.PHYSICAL_DAMAGE_VARIABLE,
+        damageCalculation.PHYSICAL_DAMAGE_VARIABLE,
         DamageFormula.PAVsRandom(1, 2),
         reflect = false,
         calc = false,
@@ -134,7 +133,7 @@ sealed class Attack(
         0,
         Type.NEUTRAL,
         Element.NONE,
-        com.rcacao.tactics.data.skills.damageCalculation.IMMUTABLE,
+        damageCalculation.IMMUTABLE,
         DamageFormula.Nothing,
         reflect = false,
         calc = false,

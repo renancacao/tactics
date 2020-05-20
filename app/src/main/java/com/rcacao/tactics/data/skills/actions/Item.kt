@@ -1,7 +1,6 @@
 package com.rcacao.tactics.data.skills.actions
 
 import com.rcacao.tactics.data.skills.*
-import com.rcacao.tactics.data.skills.Target
 
 sealed class Item(
     id: Int,
@@ -32,7 +31,7 @@ sealed class Item(
         "Use a potion to restore HP or inflict damage on the undead.",
         30,
         ItemId.POTION,
-        statsChange = listOf(StatsChange(Stats.HP, 30, Target.TARGET)),
+        statsChange = listOf(StatsChange(Stats.HP, 30, SkillTarget.TARGET)),
         otherEffects = emptyList(),
         statusEffects = emptyList()
     )
@@ -43,7 +42,7 @@ sealed class Item(
         "Use a Hi-Potion to restore HP. A more potent draught than a Potion.",
         200,
         ItemId.HI_POTION,
-        statsChange = listOf(StatsChange(Stats.HP, 70, Target.TARGET)),
+        statsChange = listOf(StatsChange(Stats.HP, 70, SkillTarget.TARGET)),
         otherEffects = emptyList(),
         statusEffects = emptyList()
     )
@@ -54,7 +53,7 @@ sealed class Item(
         "Use an X-Potion to restore HP. A more potent draught than a Hi-Potion.",
         300,
         ItemId.X_POTION,
-        statsChange = listOf(StatsChange(Stats.HP, 150, Target.TARGET)),
+        statsChange = listOf(StatsChange(Stats.HP, 150, SkillTarget.TARGET)),
         otherEffects = emptyList(),
         statusEffects = emptyList()
     )
@@ -65,7 +64,13 @@ sealed class Item(
         "Use phoenix down to restore life to a fallen unit. Vanishes after one use.",
         90,
         ItemId.PHOENIX_DOWN,
-        statsChange = listOf(StatsChange(Stats.HP, StatsChangeValue.Random(1, 20), Target.TARGET)),
+        statsChange = listOf(
+            StatsChange(
+                Stats.HP,
+                StatsChangeValue.Random(1, 20),
+                SkillTarget.TARGET
+            )
+        ),
         otherEffects = emptyList(),
         statusEffects = listOf(StatusEffect(Status.DEAD, StatusOperation.REMOVE))
     )

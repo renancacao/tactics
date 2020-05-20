@@ -1,9 +1,9 @@
 package com.rcacao.tactics.data.skills.reactions
 
 import com.rcacao.tactics.data.skills.Skill
+import com.rcacao.tactics.data.skills.SkillTarget
 import com.rcacao.tactics.data.skills.Stats
 import com.rcacao.tactics.data.skills.StatsChange
-import com.rcacao.tactics.data.skills.Target
 
 sealed class Reaction(
     override val id: Int,
@@ -36,7 +36,7 @@ sealed class Reaction(
         "Increase Speed.",
         900,
         ReactionTrigger.HP_LOSS,
-        listOf(StatsChange(Stats.SPEED, 1, Target.CASTER))
+        listOf(StatsChange(Stats.SPEED, 1, SkillTarget.CASTER))
     )
 
     object ArcherBane : Reaction(
