@@ -1,11 +1,11 @@
-package com.rcacao.tactics.data.skills.move
+package com.rcacao.tactics.data.skills.movement
 
 import com.rcacao.tactics.data.skills.Skill
 import com.rcacao.tactics.data.skills.SkillTarget
 import com.rcacao.tactics.data.skills.Stats
 import com.rcacao.tactics.data.skills.StatsChange
 
-sealed class Move(
+sealed class Movement(
     override val id: Int,
     override val name: String,
     override val description: String,
@@ -13,7 +13,7 @@ sealed class Move(
     val statsChange: List<StatsChange> = emptyList()
 ) : Skill {
 
-    object Move1 : Move(
+    object Move1 : Movement(
         1,
         "Move +1",
         "Increase Move by 1.",
@@ -21,7 +21,7 @@ sealed class Move(
         listOf(StatsChange(Stats.MOVE, 1, SkillTarget.CASTER))
     )
 
-    object Jump1 : Move(
+    object Jump1 : Movement(
         2,
         "Jump +1",
         "Increase Jump by 1.",
@@ -29,7 +29,7 @@ sealed class Move(
         listOf(StatsChange(Stats.JUMP, 1, SkillTarget.CASTER))
     )
 
-    object TreasureHunter : Move(
+    object TreasureHunter : Movement(
         3,
         "Treasure Hunter",
         "Discover items hidden on tiles upon moving to them.",

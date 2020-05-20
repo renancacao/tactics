@@ -1,7 +1,7 @@
 package com.rcacao.tactics.data.jobs
 
-data class Job(
-    val id: JobId,
+abstract class Job(
+    val id: Int,
     val name: String,
     val description: String,
     val move: Int,
@@ -13,6 +13,10 @@ data class Job(
     val baseHP: StatsMeasure,
     val baseMP: StatsMeasure
 ) {
-    lateinit var skills: JobSkill
+
+    val skills: JobSkill by lazy { loadSkills() }
+
+    abstract fun loadSkills(): JobSkill
+
 }
 

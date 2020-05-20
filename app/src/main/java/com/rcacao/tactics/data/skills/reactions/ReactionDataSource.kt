@@ -1,14 +1,20 @@
 package com.rcacao.tactics.data.skills.reactions
 
-import com.rcacao.tactics.data.jobs.JobId
+import com.rcacao.tactics.data.jobs.Archer
+import com.rcacao.tactics.data.jobs.Chemist
+import com.rcacao.tactics.data.jobs.Job
+import com.rcacao.tactics.data.jobs.Squire
 
-class ReactionDataSource() {
+class ReactionDataSource {
 
-    fun reactions(jobId: JobId): List<Reaction> {
-        return when (jobId) {
-            JobId.SQUIRE -> listOf(Reaction.CounterTackle)
-            JobId.CHEMIST -> listOf(Reaction.AutoPotion)
-            JobId.ARCHER -> listOf(Reaction.AdrenalineRush, Reaction.ArcherBane)
+    companion object {
+        fun reactions(job: Job): List<Reaction> {
+            return when (job) {
+                is Squire -> listOf(Reaction.CounterTackle)
+                is Chemist -> listOf(Reaction.AutoPotion)
+                is Archer -> listOf(Reaction.AdrenalineRush, Reaction.ArcherBane)
+                else -> emptyList()
+            }
         }
     }
 
