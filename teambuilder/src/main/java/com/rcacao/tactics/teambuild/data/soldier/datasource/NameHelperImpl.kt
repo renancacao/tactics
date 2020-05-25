@@ -1,13 +1,9 @@
-package com.rcacao.tactics.core.data.soldier.datasource
+package com.rcacao.tactics.teambuild.data.soldier.datasource
 
 import com.rcacao.tactics.core.data.soldier.Sex
 import kotlin.random.Random
 
-interface SoldierNameHelper {
-    fun getRandomName(sex: Sex): String
-}
-
-class SoldierNameHelperImpl : SoldierNameHelper {
+class NameHelperImpl : NameHelper {
 
     override fun getRandomName(sex: Sex): String {
         return when (sex) {

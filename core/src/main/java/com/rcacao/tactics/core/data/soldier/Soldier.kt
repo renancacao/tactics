@@ -7,5 +7,6 @@ class Soldier(
     val zodiac: Zodiac,
     val sex: Sex,
     var brave: Int,
-    var faith: Int
+    var faith: Int,
+    val rawStats: RawStats
 )

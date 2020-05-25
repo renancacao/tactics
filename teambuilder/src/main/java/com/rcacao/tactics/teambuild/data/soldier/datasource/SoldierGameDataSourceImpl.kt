@@ -1,23 +1,27 @@
-package com.rcacao.tactics.core.data.soldier.datasource
+package com.rcacao.tactics.teambuild.data.soldier.datasource
 
 import com.rcacao.tactics.core.data.soldier.Sex
 import com.rcacao.tactics.core.data.soldier.Soldier
 import com.rcacao.tactics.core.data.zodiac.Zodiac
 import kotlin.random.Random
 
-class SoldierGameDataSource(private val nameHelper: SoldierNameHelper) {
+class SoldierGameDataSourceImpl(
+    private val nameHelper: NameHelper,
+    private val rawStatsHelper: RawStatsHelper
+) : SoldierGameDataSource {
 
     private val initBraveAndFaith: Int = 40
     private val finalBraveAndFaith: Int = 70
 
-    fun randomSoldier(): Soldier {
+    override suspend fun randomSoldier(): Soldier {
         val sex: Sex = randomSex()
         return Soldier(
             nameHelper.getRandomName(sex),
             randomZodiac(),
             sex,
             randomBraveOrFaith(),
-            randomBraveOrFaith()
+            randomBraveOrFaith(),
+            rawStatsHelper.getRawStats(sex)
         )
     }
 

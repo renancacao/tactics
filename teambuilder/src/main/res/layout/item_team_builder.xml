@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    tools:background="#000000"
+    tools:ignore="SmallSp">
+
+    <ImageView
+        android:id="@+id/imgChar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/tb_squire_male" />
+
+    <TextView
+        android:id="@+id/textHp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/hp"
+        android:textColor="#ffffff"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgChar" />
+
+
+    <TextView
+        android:id="@+id/textCurrentHp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:textColor="#ffffff"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imgChar"
+        app:layout_constraintStart_toStartOf="@+id/imgChar"
+        app:layout_constraintTop_toBottomOf="@+id/imgChar"
+        tools:text="9999" />
+
+    <TextView
+        android:id="@+id/textTotalHp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="4dp"
+        android:textColor="#ffffff"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textBar"
+        app:layout_constraintStart_toEndOf="@+id/textBar"
+        app:layout_constraintTop_toTopOf="@+id/textBar"
+        tools:text="9999" />
+
+    <TextView
+        android:id="@+id/textBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/hp_divisor"
+        android:textColor="#ffffff"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textCurrentHp"
+        app:layout_constraintStart_toEndOf="@+id/textCurrentHp"
+        app:layout_constraintTop_toBottomOf="@+id/imgChar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

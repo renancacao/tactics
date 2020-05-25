@@ -1,5 +1,4 @@
 rootProject.name='Tactics'
 include ':app'
 include ':core'
-include ':app:teambuild'
-include ':teambuild'
+include ':teambuilder'
