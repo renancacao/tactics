@@ -2,7 +2,9 @@ package com.rcacao.tactics.core.data.job.datasource
 
 import com.rcacao.tactics.core.data.damage.DamageCalculation
 import com.rcacao.tactics.core.data.damage.DamageFormula
-import com.rcacao.tactics.core.data.job.JobSkill
+import com.rcacao.tactics.core.data.job.BaseStats
+import com.rcacao.tactics.core.data.job.CStats
+import com.rcacao.tactics.core.data.job.JobId
 import com.rcacao.tactics.core.data.skill.SkillTarget
 import com.rcacao.tactics.core.data.skill.action.*
 import com.rcacao.tactics.core.data.skill.movement.Movement
@@ -15,18 +17,34 @@ import com.rcacao.tactics.core.data.status.Status
 import com.rcacao.tactics.core.data.status.StatusEffect
 import com.rcacao.tactics.core.data.status.StatusOperation
 
-class SquireSkillHelper : JobSkillHelper {
+class SquireJobDataHelper : JobDataHelper(
+    id = JobId.SQUIRE,
+    name = "Squire",
+    description = "This job serves as the foundation for all others, forming the first step on the road to becoming a legendary warrior.",
+    move = 4,
+    jump = 3,
+    pev = 0.05f,
+    skillName = "Fundaments",
+    skillDescription = "Squire job command. These are the most fundamental of all battle techniques."
+) {
 
-    override fun getSkills() = JobSkill(
-        "Fundaments",
-        "Squire job command. These are the most fundamental of all battle techniques.",
-        getActions(),
-        getReactions(),
-        getSupports(),
-        getMovements()
+    override fun getBaseStats(): BaseStats = BaseStats(
+        baseHP = 100,
+        baseMP = 75,
+        baseSpeed = 100,
+        baseAttack = 90,
+        baseMagick = 80
     )
 
-    private fun getActions(): List<Attack> = listOf(
+    override fun getCStats(): CStats = CStats(
+        cHP = 11,
+        cMP = 15,
+        cSpeed = 100,
+        cAttack = 60,
+        cMagick = 50
+    )
+
+    override fun getActions(): List<Attack> = listOf(
         Attack(
             1,
             "Focus",
@@ -133,7 +151,7 @@ class SquireSkillHelper : JobSkillHelper {
         )
     )
 
-    private fun getReactions(): List<Reaction> = listOf(
+    override fun getReactions(): List<Reaction> = listOf(
         Reaction(
             1,
             "Counter Tackle",
@@ -143,13 +161,13 @@ class SquireSkillHelper : JobSkillHelper {
         )
     )
 
-    private fun getSupports(): List<Support> = listOf(
+    override fun getSupports(): List<Support> = listOf(
         Support(1, "Equip Axes", "Equip axes, regardless of job.", 170),
         Support(2, "Defend", "Defend oneself against an attack. Adds the Defend command.", 50),
         Support(3, "JP Boost", "Increase the amount of JP earned in battle.", 250)
     )
 
-    private fun getMovements(): List<Movement> = listOf(
+    override fun getMovements(): List<Movement> = listOf(
         Movement(
             1,
             "Move +1",

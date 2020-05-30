@@ -1,6 +1,6 @@
 package com.rcacao.tactics.core.data.soldier
 
-class RawStats(
+data class RawStats(
     val rawHp: Int,
     val rawMp: Int,
     val rawSpeed: Int,

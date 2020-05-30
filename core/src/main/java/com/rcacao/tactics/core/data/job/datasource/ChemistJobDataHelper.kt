@@ -1,6 +1,8 @@
 package com.rcacao.tactics.core.data.job.datasource
 
-import com.rcacao.tactics.core.data.job.JobSkill
+import com.rcacao.tactics.core.data.job.BaseStats
+import com.rcacao.tactics.core.data.job.CStats
+import com.rcacao.tactics.core.data.job.JobId
 import com.rcacao.tactics.core.data.skill.SkillTarget
 import com.rcacao.tactics.core.data.skill.action.Item
 import com.rcacao.tactics.core.data.skill.action.ItemId
@@ -15,18 +17,34 @@ import com.rcacao.tactics.core.data.status.Status
 import com.rcacao.tactics.core.data.status.StatusEffect
 import com.rcacao.tactics.core.data.status.StatusOperation
 
-class ChemistSkillHelper : JobSkillHelper {
+class ChemistJobDataHelper : JobDataHelper(
+    id = JobId.CHEMIST,
+    name = "Chemist",
+    description = "An expert in the use of items to recover HP or remove vexing status ailments.",
+    move = 3,
+    jump = 3,
+    pev = 0.05f,
+    skillName = "Items",
+    skillDescription = "Chemist job command. Enables the use of items to assist allies in need."
+) {
 
-    override fun getSkills() = JobSkill(
-        "Items",
-        "Chemist job command. Enables the use of items to assist allies in need.",
-        getActions(),
-        getReactions(),
-        getSupports(),
-        getMovements()
+    override fun getBaseStats(): BaseStats = BaseStats(
+        baseHP = 80,
+        baseMP = 75,
+        baseSpeed = 100,
+        baseAttack = 75,
+        baseMagick = 80
     )
 
-    private fun getActions(): List<Item> = listOf(
+    override fun getCStats(): CStats = CStats(
+        cHP = 12,
+        cMP = 16,
+        cSpeed = 100,
+        cAttack = 75,
+        cMagick = 50
+    )
+
+    override fun getActions(): List<Item> = listOf(
         Item(
             5,
             "Potion",
@@ -75,7 +93,7 @@ class ChemistSkillHelper : JobSkillHelper {
         )
     )
 
-    private fun getReactions(): List<Reaction> = listOf(
+    override fun getReactions(): List<Reaction> = listOf(
         Reaction(
             2,
             "Auto Potion",
@@ -85,7 +103,7 @@ class ChemistSkillHelper : JobSkillHelper {
         )
     )
 
-    private fun getSupports(): List<Support> = listOf(
+    override fun getSupports(): List<Support> = listOf(
         Support(
             4,
             "Throw Item",
@@ -96,7 +114,7 @@ class ChemistSkillHelper : JobSkillHelper {
         Support(6, "Reequip", "Change equipment mid-battle. Adds the Reequip command.", 0)
     )
 
-    private fun getMovements(): List<Movement> = listOf(
+    override fun getMovements(): List<Movement> = listOf(
         Movement(
             2,
             "Jump +1",

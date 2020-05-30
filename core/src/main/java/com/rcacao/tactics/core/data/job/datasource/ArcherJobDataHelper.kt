@@ -1,6 +1,8 @@
 package com.rcacao.tactics.core.data.job.datasource
 
-import com.rcacao.tactics.core.data.job.JobSkill
+import com.rcacao.tactics.core.data.job.BaseStats
+import com.rcacao.tactics.core.data.job.CStats
+import com.rcacao.tactics.core.data.job.JobId
 import com.rcacao.tactics.core.data.skill.SkillTarget
 import com.rcacao.tactics.core.data.skill.action.Aim
 import com.rcacao.tactics.core.data.skill.movement.Movement
@@ -10,18 +12,34 @@ import com.rcacao.tactics.core.data.skill.support.Support
 import com.rcacao.tactics.core.data.stats.Stats
 import com.rcacao.tactics.core.data.stats.StatsChange
 
-class ArcherSkillHelper : JobSkillHelper {
+class ArcherJobDataHelper : JobDataHelper(
+    id = JobId.ARCHER,
+    name = "Archer",
+    description = "Equipped with a bow and arrow, this warrior provides valuable long-range attacks. May Aim for higher damage.",
+    move = 3,
+    jump = 3,
+    pev = 0.1f,
+    skillName = "Aim",
+    skillDescription = "Archer job command. Allows attacks to be carefully aimed in order to deal greater damage."
+) {
 
-    override fun getSkills() = JobSkill(
-        "Aim",
-        "Archer job command. Allows attacks to be carefully aimed in order to deal greater damage.",
-        getActions(),
-        getReactions(),
-        getSupports(),
-        getMovements()
+    override fun getBaseStats(): BaseStats = BaseStats(
+        baseHP = 100,
+        baseMP = 65,
+        baseSpeed = 100,
+        baseAttack = 110,
+        baseMagick = 80
     )
 
-    private fun getActions(): List<Aim> = listOf(
+    override fun getCStats(): CStats = CStats(
+        cHP = 11,
+        cMP = 16,
+        cSpeed = 100,
+        cAttack = 45,
+        cMagick = 50
+    )
+
+    override fun getActions(): List<Aim> = listOf(
         Aim(9, 100, 4, 1),
         Aim(9, 150, 5, 2),
         Aim(9, 200, 6, 3),
@@ -32,7 +50,7 @@ class ArcherSkillHelper : JobSkillHelper {
         Aim(9, 1200, 35, 20)
     )
 
-    private fun getReactions(): List<Reaction> = listOf(
+    override fun getReactions(): List<Reaction> = listOf(
         Reaction(
             3,
             "Adrenaline Rush",
@@ -52,7 +70,7 @@ class ArcherSkillHelper : JobSkillHelper {
         )
     )
 
-    private fun getSupports(): List<Support> = listOf(
+    override fun getSupports(): List<Support> = listOf(
         Support(7, "Equip Crossbows", "Equip crossbows, regardless of job.", 350),
         Support(
             8,
@@ -62,7 +80,7 @@ class ArcherSkillHelper : JobSkillHelper {
         )
     )
 
-    private fun getMovements(): List<Movement> = listOf(
+    override fun getMovements(): List<Movement> = listOf(
         Movement(
             1,
             "Move +1",
