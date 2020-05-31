@@ -9,21 +9,19 @@ class Soldier(
     val sex: Sex,
     var brave: Int,
     var faith: Int,
-    val rawStats: RawStats
+    private val rawStats: RawStats,
+    val job: Job
 ) {
 
     companion object {
         private val statsCalculatorHelper = StatsCalculatorHelper()
     }
 
-    var stats: SoldierStats = SoldierStats(0, 0, 0, 0, 0)
+    init {
+        calculateStatus(job)
+    }
 
-    var job: Job
-        get() = job
-        set(value) {
-            job = value
-            calculateStatus(job)
-        }
+    var stats: SoldierStats = SoldierStats(0, 0, 0, 0, 0)
 
     private fun calculateStatus(job: Job) {
         stats = statsCalculatorHelper.calculateStats(rawStats, job)

@@ -6,14 +6,16 @@ class JobGameDataSource(
     private val squireJobDataHelper: JobDataHelper,
     private val chemistJobDataHelper: JobDataHelper,
     private val archerJobDataHelper: JobDataHelper
-) {
+) : JobDataSource {
 
-    fun getJobs(): List<Job> {
+    override suspend fun getJobs(): List<Job> {
         return listOf(
             squireJobDataHelper.job(),
             chemistJobDataHelper.job(),
             archerJobDataHelper.job()
         )
     }
+
+    override suspend fun getInitialJob(): Job = squireJobDataHelper.job()
 
 }
