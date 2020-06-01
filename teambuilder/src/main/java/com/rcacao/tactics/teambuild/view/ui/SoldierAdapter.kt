@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rcacao.tactics.core.data.soldier.Soldier
+import com.rcacao.tactics.core.data.soldier.model.Soldier
 import com.rcacao.tactics.teambuild.R
 import kotlinx.android.synthetic.main.item_team_builder.view.*
 

@@ -1,7 +1,7 @@
 package com.rcacao.tactics.teambuild.data.soldier.datasource
 
-import com.rcacao.tactics.core.data.soldier.RawStats
-import com.rcacao.tactics.core.data.soldier.Sex
+import com.rcacao.tactics.core.data.soldier.model.RawStats
+import com.rcacao.tactics.core.domain.soldier.Sex
 import kotlin.random.Random
 
 class RawStatsHelperImpl : RawStatsHelper {
@@ -22,13 +22,14 @@ class RawStatsHelperImpl : RawStatsHelper {
     private val initMpFemale = 245760
     private val finalMpFemale = 262143
 
-    override fun getRawStats(sex: Sex): RawStats = RawStats(
-        getRawHP(sex),
-        getRawMP(sex),
-        getRawSpeed(sex),
-        getRawPAtk(sex),
-        getRawPMgk(sex)
-    )
+    override fun getRawStats(sex: Sex): RawStats =
+        RawStats(
+            getRawHP(sex),
+            getRawMP(sex),
+            getRawSpeed(sex),
+            getRawPAtk(sex),
+            getRawPMgk(sex)
+        )
 
     private fun getRawSpeed(sex: Sex): Int {
         return when (sex) {

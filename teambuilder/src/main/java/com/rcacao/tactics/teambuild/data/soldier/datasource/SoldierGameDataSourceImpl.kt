@@ -1,10 +1,10 @@
 package com.rcacao.tactics.teambuild.data.soldier.datasource
 
 import com.rcacao.tactics.core.data.Result
-import com.rcacao.tactics.core.data.job.Job
-import com.rcacao.tactics.core.data.soldier.Sex
-import com.rcacao.tactics.core.data.soldier.Soldier
-import com.rcacao.tactics.core.data.zodiac.Zodiac
+import com.rcacao.tactics.core.data.job.model.Job
+import com.rcacao.tactics.core.data.soldier.model.Soldier
+import com.rcacao.tactics.core.domain.soldier.Sex
+import com.rcacao.tactics.core.domain.zodiac.Zodiac
 import kotlin.random.Random
 
 class SoldierGameDataSourceImpl(
