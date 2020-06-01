@@ -1,5 +1,6 @@
 package com.rcacao.tactics.teambuild.data.soldier.datasource
 
+import com.rcacao.tactics.core.data.Result
 import com.rcacao.tactics.core.data.job.Job
 import com.rcacao.tactics.core.data.soldier.Sex
 import com.rcacao.tactics.core.data.soldier.Soldier
@@ -14,17 +15,23 @@ class SoldierGameDataSourceImpl(
     private val initBraveAndFaith: Int = 40
     private val finalBraveAndFaith: Int = 70
 
-    override suspend fun randomSoldier(job: Job): Soldier {
-        val sex: Sex = randomSex()
-        return Soldier(
-            nameHelper.getRandomName(sex),
-            randomZodiac(),
-            sex,
-            randomBraveOrFaith(),
-            randomBraveOrFaith(),
-            rawStatsHelper.getRawStats(sex),
-            job
-        )
+    override suspend fun randomSoldier(job: Job): Result<Soldier> {
+        return try {
+            val sex: Sex = randomSex()
+            Result.Success(
+                Soldier(
+                    nameHelper.getRandomName(sex),
+                    randomZodiac(),
+                    sex,
+                    randomBraveOrFaith(),
+                    randomBraveOrFaith(),
+                    rawStatsHelper.getRawStats(sex),
+                    job
+                )
+            )
+        } catch (ex: Exception) {
+            Result.Error(ex)
+        }
     }
 
     private fun randomZodiac(): Zodiac {

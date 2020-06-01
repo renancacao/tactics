@@ -8,7 +8,7 @@ import com.rcacao.tactics.teambuild.data.soldier.datasource.SoldierGameDataSourc
 class SoldierRepositoryImpl(private val gameDataSource: SoldierGameDataSource) : SoldierRepository {
 
     override suspend fun getRandomSoldier(job: Job): Result<Soldier> {
-        return Result.Success(gameDataSource.randomSoldier(job))
+        return gameDataSource.randomSoldier(job)
     }
 
 }
