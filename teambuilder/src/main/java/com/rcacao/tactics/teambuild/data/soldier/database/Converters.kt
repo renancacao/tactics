@@ -2,6 +2,7 @@ package com.rcacao.tactics.teambuild.data.soldier.database
 
 import androidx.room.TypeConverter
 import com.rcacao.tactics.core.domain.job.JobId
+import com.rcacao.tactics.core.domain.soldier.Sex
 import com.rcacao.tactics.core.domain.zodiac.Zodiac
 
 class Converters {
@@ -16,4 +17,10 @@ class Converters {
 
     @TypeConverter
     fun intToZodiac(ordinal: Int) = Zodiac.values().first { it.ordinal == ordinal }
+
+    @TypeConverter
+    fun sexToInt(sex: Sex) = sex.ordinal
+
+    @TypeConverter
+    fun intToSex(ordinal: Int) = Sex.values().first { it.ordinal == ordinal }
 }
