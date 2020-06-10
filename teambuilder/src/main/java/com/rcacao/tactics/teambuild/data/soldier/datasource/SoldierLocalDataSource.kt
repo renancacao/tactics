@@ -5,4 +5,5 @@ import com.rcacao.tactics.teambuild.data.soldier.database.DBSoldier
 
 interface SoldierLocalDataSource {
     suspend fun getSavedSoldiers(): Result<List<DBSoldier>>
+    suspend fun saveSoldier(soldier: DBSoldier): Result<Any>
 }

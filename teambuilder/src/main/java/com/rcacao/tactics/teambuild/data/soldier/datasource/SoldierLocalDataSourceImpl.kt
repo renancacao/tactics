@@ -13,4 +13,11 @@ class SoldierLocalDataSourceImpl(private val soldiersDataBase: SoldiersDataBase)
         Result.Error(ex)
     }
 
+    override suspend fun saveSoldier(soldier: DBSoldier): Result<Any> = try {
+        soldiersDataBase.soldiersDao().insert(soldier)
+        Result.Success(Any())
+    } catch (ex: Exception) {
+        Result.Error(ex)
+    }
+
 }

@@ -8,7 +8,7 @@ import com.rcacao.tactics.core.domain.zodiac.Zodiac
 
 @Entity(tableName = "soldiersData")
 class DBSoldier(
-    @PrimaryKey(autoGenerate = true) var id: Int,
+    @PrimaryKey(autoGenerate = true) var id: Int?,
     val name: String,
     val zodiac: Zodiac,
     val sex: Sex,

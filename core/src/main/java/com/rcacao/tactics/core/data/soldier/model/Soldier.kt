@@ -11,7 +11,7 @@ class Soldier(
     val sex: Sex,
     var brave: Int,
     var faith: Int,
-    private val rawStats: RawStats,
+    val rawStats: RawStats,
     val job: Job,
     val stats: SoldierStats
 ) {

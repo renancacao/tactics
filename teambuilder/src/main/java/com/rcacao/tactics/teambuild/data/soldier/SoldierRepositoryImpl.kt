@@ -40,4 +40,27 @@ class SoldierRepositoryImpl(
         Result.Error(ex)
     }
 
+    override suspend fun saveSoldier(soldier: Soldier): Result<Any> =
+        soldierLocalDataSource.saveSoldier(soldier.let {
+            DBSoldier(
+                it.id,
+                it.name,
+                it.zodiac,
+                it.sex,
+                it.brave,
+                it.faith,
+                it.rawStats.rawHp,
+                it.rawStats.rawMp,
+                it.rawStats.rawSpeed,
+                it.rawStats.rawPAtk,
+                it.rawStats.rawPMgk,
+                it.job.id,
+                it.stats.hp,
+                it.stats.mp,
+                it.stats.sp,
+                it.stats.pa,
+                it.stats.ma
+            )
+        })
+
 }

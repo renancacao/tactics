@@ -9,10 +9,9 @@ class RandomBaseSoldierUseCase(
     private val repository: SoldierRepository,
     private val initialJobUseCase: InitialJobUseCase
 ) {
-    suspend fun invoke(): Result<Soldier> {
-        return when (val result: Result<Job> = initialJobUseCase()) {
+    suspend operator fun invoke(): Result<Soldier> =
+        when (val result: Result<Job> = initialJobUseCase()) {
             is Result.Success -> repository.getRandomSoldier(result.data)
-            is Result.Error -> result;
+            is Result.Error -> result
         }
-    }
 }
