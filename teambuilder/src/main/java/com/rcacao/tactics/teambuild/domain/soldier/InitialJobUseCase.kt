@@ -5,5 +5,5 @@ import com.rcacao.tactics.core.data.job.model.Job
 import com.rcacao.tactics.teambuild.data.job.JobRepository
 
 class InitialJobUseCase(private val jobRepository: JobRepository) {
-    suspend operator fun invoke(): Result<Job> = jobRepository.getJob()
+    suspend operator fun invoke(): Result<Job> = jobRepository.getInitialJob()
 }

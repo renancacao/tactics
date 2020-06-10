@@ -2,14 +2,17 @@ package com.rcacao.tactics.teambuild.data.soldier.datasource
 
 import com.rcacao.tactics.core.data.Result
 import com.rcacao.tactics.core.data.job.model.Job
+import com.rcacao.tactics.core.data.soldier.model.RawStats
 import com.rcacao.tactics.core.data.soldier.model.Soldier
 import com.rcacao.tactics.core.domain.soldier.Sex
+import com.rcacao.tactics.core.domain.soldier.StatsCalculatorHelper
 import com.rcacao.tactics.core.domain.zodiac.Zodiac
 import kotlin.random.Random
 
 class SoldierGameDataSourceImpl(
     private val nameHelper: NameHelper,
-    private val rawStatsHelper: RawStatsHelper
+    private val rawStatsHelper: RawStatsHelper,
+    private val statsCalculatorHelper: StatsCalculatorHelper
 ) : SoldierGameDataSource {
 
     private val initBraveAndFaith: Int = 40
@@ -18,15 +21,18 @@ class SoldierGameDataSourceImpl(
     override suspend fun randomSoldier(job: Job): Result<Soldier> {
         return try {
             val sex: Sex = randomSex()
+            val rawStats: RawStats = rawStatsHelper.getRawStats(sex)
             Result.Success(
                 Soldier(
+                    null,
                     nameHelper.getRandomName(sex),
                     randomZodiac(),
                     sex,
                     randomBraveOrFaith(),
                     randomBraveOrFaith(),
-                    rawStatsHelper.getRawStats(sex),
-                    job
+                    rawStats,
+                    job,
+                    statsCalculatorHelper.calculateStats(rawStats, job)
                 )
             )
         } catch (ex: Exception) {

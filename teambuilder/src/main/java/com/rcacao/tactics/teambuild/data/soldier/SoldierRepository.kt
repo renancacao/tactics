@@ -6,5 +6,6 @@ import com.rcacao.tactics.core.data.soldier.model.Soldier
 
 interface SoldierRepository {
     suspend fun getRandomSoldier(job: Job): Result<Soldier>
+    suspend fun getSavedSoldiers(): Result<List<Soldier>>
 }
 

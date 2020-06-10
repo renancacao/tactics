@@ -4,5 +4,5 @@ import com.rcacao.tactics.core.data.Result
 import com.rcacao.tactics.core.data.job.model.Job
 
 interface JobRepository {
-    suspend fun getJob(): Result<Job>
+    suspend fun getInitialJob(): Result<Job>
 }
