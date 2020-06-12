@@ -5,11 +5,11 @@ import com.rcacao.tactics.core.data.job.model.Job
 import com.rcacao.tactics.core.data.soldier.model.RawStats
 import com.rcacao.tactics.core.data.soldier.model.Soldier
 import com.rcacao.tactics.core.domain.soldier.Sex
-import com.rcacao.tactics.core.domain.soldier.StatsCalculatorHelper
 import com.rcacao.tactics.core.domain.zodiac.Zodiac
+import javax.inject.Inject
 import kotlin.random.Random
 
-class SoldierGameDataSourceImpl(
+class SoldierGameDataSourceImpl @Inject constructor(
     private val nameHelper: NameHelper,
     private val rawStatsHelper: RawStatsHelper,
     private val statsCalculatorHelper: StatsCalculatorHelper

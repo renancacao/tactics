@@ -2,8 +2,9 @@ package com.rcacao.tactics.teambuild.domain.soldier
 
 import com.rcacao.tactics.core.data.Result
 import com.rcacao.tactics.core.data.soldier.model.Soldier
+import javax.inject.Inject
 
-class AddNewSoldierUseCase(
+class AddNewSoldierUseCase @Inject constructor(
     private val randomBaseSoldier: RandomBaseSoldierUseCase,
     private val saveSoldier: SaveSoldierUseCase,
     private val getSavedSoldiers: GetSavedSoldiersUseCase

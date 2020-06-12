@@ -1,11 +1,13 @@
-package com.rcacao.tactics.core.domain.soldier
+package com.rcacao.tactics.teambuild.data.soldier.datasource
 
 import com.rcacao.tactics.core.data.job.model.Job
 import com.rcacao.tactics.core.data.soldier.model.RawStats
 import com.rcacao.tactics.core.data.soldier.model.SoldierStats
+import javax.inject.Inject
 import kotlin.math.max
 
-class StatsCalculatorHelper {
+class StatsCalculatorHelperImpl @Inject constructor() :
+    StatsCalculatorHelper {
 
     /*
     * Este calculo bate com o do FFT sem levar em consideração que em cada mudança de level dentro
@@ -16,7 +18,7 @@ class StatsCalculatorHelper {
     private val divisor = 1638400
     private val currentLevel = 50
 
-    fun calculateStats(rawStats: RawStats, job: Job): SoldierStats =
+    override fun calculateStats(rawStats: RawStats, job: Job): SoldierStats =
         SoldierStats(
             hp = calculate(rawStats.rawHp, job.baseStats.baseHP, job.cStats.cHP),
             mp = calculate(rawStats.rawMp, job.baseStats.baseMP, job.cStats.cMP),

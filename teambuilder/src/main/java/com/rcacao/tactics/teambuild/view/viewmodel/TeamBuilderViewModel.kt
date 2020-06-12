@@ -1,5 +1,6 @@
 package com.rcacao.tactics.teambuild.view.viewmodel
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,9 +12,9 @@ import com.rcacao.tactics.teambuild.domain.soldier.GetSavedSoldiersUseCase
 import com.rcacao.tactics.teambuild.view.ui.model.SoldiersUiModel
 import kotlinx.coroutines.launch
 
-class TeamBuilderViewModel(
-    val getSavedSoldiers: GetSavedSoldiersUseCase,
-    val addNewSoldierUseCase: AddNewSoldierUseCase
+class TeamBuilderViewModel @ViewModelInject constructor(
+    private val getSavedSoldiers: GetSavedSoldiersUseCase,
+    private val addNewSoldierUseCase: AddNewSoldierUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableLiveData<SoldiersUiModel>()

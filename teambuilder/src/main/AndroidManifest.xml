@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rcacao.tactics.teambuild">
 
-    <application>
+    <application android:name=".TeamBuilderApplication">
         <activity android:name=".view.ui.TeamBuilderActivity" />
     </application>
 

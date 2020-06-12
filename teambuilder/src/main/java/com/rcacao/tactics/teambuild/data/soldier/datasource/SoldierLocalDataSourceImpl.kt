@@ -3,8 +3,9 @@ package com.rcacao.tactics.teambuild.data.soldier.datasource
 import com.rcacao.tactics.core.data.Result
 import com.rcacao.tactics.teambuild.data.soldier.database.DBSoldier
 import com.rcacao.tactics.teambuild.data.soldier.database.SoldiersDataBase
+import javax.inject.Inject
 
-class SoldierLocalDataSourceImpl(private val soldiersDataBase: SoldiersDataBase) :
+class SoldierLocalDataSourceImpl @Inject constructor(private val soldiersDataBase: SoldiersDataBase) :
     SoldierLocalDataSource {
 
     override suspend fun getSavedSoldiers(): Result<List<DBSoldier>> = try {
