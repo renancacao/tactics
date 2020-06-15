@@ -41,15 +41,15 @@ class SoldierGameDataSourceImpl @Inject constructor(
     }
 
     private fun randomZodiac(): Zodiac {
-        return Zodiac.values()[Random.nextInt(0, Zodiac.values().size - 1)]
+        return Zodiac.values()[Random.nextInt(0, Zodiac.values().size)]
     }
 
     private fun randomSex(): Sex {
-        return Sex.values()[Random.nextInt(0, Sex.values().size - 1)]
+        return Sex.values()[Random.nextInt(0, Sex.values().size)]
     }
 
     private fun randomBraveOrFaith(): Int {
-        return Random.nextInt(initBraveAndFaith, finalBraveAndFaith)
+        return Random.nextInt(initBraveAndFaith, finalBraveAndFaith + 1)
     }
 
 }

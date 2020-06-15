@@ -2,4 +2,5 @@
 <resources>
     <string name="hp">Hp</string>
     <string name="hp_divisor">/</string>
+    <string name="add_new_soldier">add new soldier</string>
 </resources>

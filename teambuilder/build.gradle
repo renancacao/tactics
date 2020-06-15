@@ -42,6 +42,7 @@ dependencies {
 
     //projects modules
     implementation project(':core')
+    implementation project(':resources')
 
     implementation "androidx.fragment:fragment-ktx:1.2.5"
 

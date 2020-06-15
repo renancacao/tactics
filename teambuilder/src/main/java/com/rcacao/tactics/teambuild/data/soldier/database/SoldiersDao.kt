@@ -9,15 +9,15 @@ import androidx.room.Query
 interface SoldiersDao {
 
     @Query("SELECT * from soldiersData")
-    fun getAll(): List<DBSoldier>
+    suspend fun getAll(): List<DBSoldier>
 
     @Insert(onConflict = REPLACE)
-    fun insert(dbSoldier: DBSoldier)
+    suspend fun insert(dbSoldier: DBSoldier)
 
     @Query("DELETE from soldiersData")
-    fun deleteAll()
+    suspend fun deleteAll()
 
     @Query("DELETE from soldiersData where id=:id")
-    fun deleteById(id: Int)
+    suspend fun deleteById(id: Int)
 
 }
