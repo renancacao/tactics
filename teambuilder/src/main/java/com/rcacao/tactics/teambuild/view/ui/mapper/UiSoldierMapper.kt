@@ -13,6 +13,9 @@ class UiSoldierMapper @Inject constructor(private val resProvider: ResourceProvi
                 UiSoldier(
                     it.id,
                     it.stats.hp,
+                    it.stats.mp,
+                    it.brave,
+                    it.faith,
                     resProvider.standPose(it.job.id, it.sex)
                 )
             } as MutableList<UiSoldier>

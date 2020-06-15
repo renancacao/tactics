@@ -51,8 +51,10 @@ class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
     override fun getItemCount(): Int = uiSoldiers.size
 
     private fun bindSoldierViewHolder(itemView: View, uiSoldier: UiSoldier) {
-        itemView.textCurrentStats.text = uiSoldier.hp.toString()
-        itemView.textTotalStats.text = uiSoldier.hp.toString()
+        itemView.textCurrentHp.text = uiSoldier.hp.toString()
+        itemView.textCurrentMp.text = uiSoldier.mp.toString()
+        itemView.textCurrentBrave.text = uiSoldier.br.toString()
+        itemView.textCurrentFaith.text = uiSoldier.fa.toString()
         itemView.imgChar.setImageResource(uiSoldier.sprite)
     }
 

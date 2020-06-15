@@ -2,7 +2,6 @@ package com.rcacao.tactics.teambuild.view.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.rcacao.tactics.teambuild.R
@@ -12,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_team_builder.*
 
 @AndroidEntryPoint
-class TeamBuilderActivity : AppCompatActivity() {
+class TeamBuilderActivity : FullScreenActivity() {
 
     private val viewModel: TeamBuilderViewModel by viewModels()
 
@@ -23,7 +22,7 @@ class TeamBuilderActivity : AppCompatActivity() {
         setContentView(R.layout.activity_team_builder)
 
         soldierAdapter = SoldierAdapter(viewModel)
-        soldierRecyclerView.layoutManager = GridLayoutManager(this, 4)
+        soldierRecyclerView.layoutManager = GridLayoutManager(this, 3)
         soldierRecyclerView.adapter = soldierAdapter
 
         initViewModelObserver()
@@ -36,4 +35,5 @@ class TeamBuilderActivity : AppCompatActivity() {
             }
         })
     }
+
 }

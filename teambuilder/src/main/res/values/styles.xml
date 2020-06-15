@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SoldierItemStatsText">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="SoldierBrFaText" parent="SoldierItemStatsText">
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="ItemSquare">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">120dp</item>
+    </style>
+</resources>

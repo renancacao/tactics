@@ -3,4 +3,7 @@
     <string name="hp">Hp</string>
     <string name="hp_divisor">/</string>
     <string name="add_new_soldier">add new soldier</string>
+    <string name="mp">Mp</string>
+    <string name="br">Br</string>
+    <string name="fa">Fa</string>
 </resources>
