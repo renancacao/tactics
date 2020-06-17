@@ -8,7 +8,7 @@ import com.rcacao.tactics.teambuild.R
 import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
 import com.rcacao.tactics.teambuild.view.ui.model.UiSoldierType
 import com.rcacao.tactics.teambuild.view.viewmodel.TeamBuilderViewModel
-import kotlinx.android.synthetic.main.item_team_builder.view.*
+import kotlinx.android.synthetic.main.item_soldier.view.*
 
 class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
     RecyclerView.Adapter<SoldierAdapter.SoldierAdapterViewHolder>() {
@@ -33,14 +33,14 @@ class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
     private fun createAddViewHolder(parent: ViewGroup): AddViewHolder {
         val view =
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.add_team_builder, parent, false)
+                .inflate(R.layout.item_add, parent, false)
         return AddViewHolder(view)
     }
 
     private fun createSoldierViewModel(parent: ViewGroup): SoldierViewHolder {
         val view =
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_team_builder, parent, false)
+                .inflate(R.layout.item_soldier, parent, false)
         return SoldierViewHolder(view)
     }
 

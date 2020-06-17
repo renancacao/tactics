@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="itemBackColor">#161022</color>
+    <color name="selectedItemBackColor">#31244A</color>
+    <color name="teamBuilderBackColor">#0B0810</color>
+</resources>
