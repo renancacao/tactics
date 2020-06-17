@@ -3,7 +3,7 @@ package com.rcacao.tactics.teambuild.view.ui.model
 class UiSoldier {
 
     val type: UiSoldierType
-    var id: Int? = -1
+    var id: Long? = -1
     var hp: Int = -1
     var mp: Int = -1
     var br: Int = -1
@@ -14,7 +14,7 @@ class UiSoldier {
         type = UiSoldierType.ADD_NEW
     }
 
-    constructor(id: Int?, hp: Int, mp: Int, br: Int, fa: Int, sprite: Int) {
+    constructor(id: Long?, hp: Int, mp: Int, br: Int, fa: Int, sprite: Int) {
         type = UiSoldierType.SOLDIER
         this.id = id
         this.hp = hp

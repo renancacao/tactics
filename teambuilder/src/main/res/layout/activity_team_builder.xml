@@ -9,7 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentSoldiersList"
-        android:name="com.rcacao.tactics.teambuild.view.ui.model.SoldierListFragment"
+        android:name="com.rcacao.tactics.teambuild.view.ui.SoldierListFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/fragmentDetailsList"

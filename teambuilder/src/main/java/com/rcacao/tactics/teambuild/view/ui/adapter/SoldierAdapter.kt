@@ -1,31 +1,31 @@
-package com.rcacao.tactics.teambuild.view.ui
+package com.rcacao.tactics.teambuild.view.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rcacao.tactics.teambuild.R
 import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
 import com.rcacao.tactics.teambuild.view.ui.model.UiSoldierType
 import com.rcacao.tactics.teambuild.view.viewmodel.TeamBuilderViewModel
-import kotlinx.android.synthetic.main.item_soldier.view.*
 
 class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
-    RecyclerView.Adapter<SoldierAdapter.SoldierAdapterViewHolder>() {
+    RecyclerView.Adapter<SoldierAdapterViewHolder>() {
 
-    var uiSoldiers: List<UiSoldier> = emptyList()
+    var selectedSoldier: UiSoldier? = null
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    open class SoldierAdapterViewHolder(view: View) : RecyclerView.ViewHolder(view)
-    class AddViewHolder(view: View) : SoldierAdapterViewHolder(view)
-    class SoldierViewHolder(view: View) : SoldierAdapterViewHolder(view)
+    var soldiers: List<UiSoldier> = emptyList()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SoldierAdapterViewHolder {
         return when (viewType) {
-            UiSoldierType.SOLDIER.ordinal -> createSoldierViewModel(parent)
+            UiSoldierType.SOLDIER.ordinal -> createSoldierViewHolder(parent)
             else -> createAddViewHolder(parent)
         }
     }
@@ -37,7 +37,7 @@ class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
         return AddViewHolder(view)
     }
 
-    private fun createSoldierViewModel(parent: ViewGroup): SoldierViewHolder {
+    private fun createSoldierViewHolder(parent: ViewGroup): SoldierViewHolder {
         val view =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_soldier, parent, false)
@@ -45,25 +45,26 @@ class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return uiSoldiers[position].type.ordinal
+        return soldiers[position].type.ordinal
     }
 
-    override fun getItemCount(): Int = uiSoldiers.size
+    override fun getItemCount(): Int = soldiers.size
 
-    private fun bindSoldierViewHolder(itemView: View, uiSoldier: UiSoldier) {
-        itemView.textCurrentHp.text = uiSoldier.hp.toString()
-        itemView.textCurrentMp.text = uiSoldier.mp.toString()
-        itemView.textCurrentBrave.text = uiSoldier.br.toString()
-        itemView.textCurrentFaith.text = uiSoldier.fa.toString()
-        itemView.imgChar.setImageResource(uiSoldier.sprite)
-    }
-
-    override fun onBindViewHolder(holder: SoldierAdapterViewHolder, position: Int) {
-        val uiSoldier: UiSoldier = uiSoldiers[position]
+    override fun onBindViewHolder(holder: SoldierAdapterViewHolder, position: Int) =
         if (holder is SoldierViewHolder) {
-            bindSoldierViewHolder(holder.itemView, uiSoldier)
+            bindSoldierViewHolder(position, holder)
         } else {
             holder.itemView.setOnClickListener { viewModel.newSoldier() }
         }
+
+    private fun bindSoldierViewHolder(position: Int, holder: SoldierViewHolder) {
+        val soldier: UiSoldier = soldiers[position]
+        val selected = soldier.id == selectedSoldier?.id
+        holder.bind(soldier, selected, onItemClick())
     }
+
+    private fun onItemClick(): (UiSoldier) -> Unit {
+        return { uiSoldier: UiSoldier -> viewModel.selectSoldier(uiSoldier) }
+    }
+
 }

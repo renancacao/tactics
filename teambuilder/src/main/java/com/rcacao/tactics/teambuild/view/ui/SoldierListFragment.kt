@@ -1,4 +1,4 @@
-package com.rcacao.tactics.teambuild.view.ui.model
+package com.rcacao.tactics.teambuild.view.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.rcacao.tactics.teambuild.R
-import com.rcacao.tactics.teambuild.view.ui.SoldierAdapter
+import com.rcacao.tactics.teambuild.view.ui.adapter.SoldierAdapter
 import com.rcacao.tactics.teambuild.view.viewmodel.TeamBuilderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_soldiers_list.*
@@ -32,17 +32,20 @@ class SoldierListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        soldierAdapter = SoldierAdapter(viewModel)
+        soldierAdapter =
+            SoldierAdapter(viewModel)
         soldierRecyclerView.layoutManager = GridLayoutManager(activity, 3)
         soldierRecyclerView.adapter = soldierAdapter
         initViewModelObserver()
     }
 
     private fun initViewModelObserver() {
-        viewModel.uiState.observe(viewLifecycleOwner, Observer {
-            when (it) {
-                is TeamBuilderViewState.SoldiersLoad -> soldierAdapter.uiSoldiers = it.soldiers
-            }
+        viewModel.soldierList.observe(viewLifecycleOwner, Observer {
+            soldierAdapter.soldiers = it
+        })
+        viewModel.selectedSoldier.observe(viewLifecycleOwner, Observer {
+            soldierAdapter.selectedSoldier = it
         })
     }
+
 }

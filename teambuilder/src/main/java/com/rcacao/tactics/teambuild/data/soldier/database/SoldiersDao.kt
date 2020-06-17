@@ -12,7 +12,7 @@ interface SoldiersDao {
     suspend fun getAll(): List<DBSoldier>
 
     @Insert(onConflict = REPLACE)
-    suspend fun insert(dbSoldier: DBSoldier)
+    suspend fun insert(dbSoldier: DBSoldier): Long
 
     @Query("DELETE from soldiersData")
     suspend fun deleteAll()

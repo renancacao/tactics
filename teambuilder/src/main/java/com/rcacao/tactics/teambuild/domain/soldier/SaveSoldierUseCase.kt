@@ -6,6 +6,6 @@ import com.rcacao.tactics.teambuild.data.soldier.SoldierRepository
 import javax.inject.Inject
 
 class SaveSoldierUseCase @Inject constructor(private val soldierRepository: SoldierRepository) {
-    suspend operator fun invoke(soldier: Soldier): Result<Any> =
+    suspend operator fun invoke(soldier: Soldier): Result<Long> =
         soldierRepository.saveSoldier(soldier)
 }

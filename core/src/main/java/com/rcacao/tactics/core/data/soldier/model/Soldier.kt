@@ -5,7 +5,7 @@ import com.rcacao.tactics.core.domain.soldier.Sex
 import com.rcacao.tactics.core.domain.zodiac.Zodiac
 
 class Soldier(
-    val id: Int?,
+    var id: Long?,
     val name: String,
     val zodiac: Zodiac,
     val sex: Sex,

@@ -10,7 +10,6 @@ import com.rcacao.tactics.core.data.soldier.model.Soldier
 import com.rcacao.tactics.teambuild.domain.soldier.AddNewSoldierUseCase
 import com.rcacao.tactics.teambuild.domain.soldier.GetSavedSoldiersUseCase
 import com.rcacao.tactics.teambuild.view.ui.mapper.UiSoldierMapper
-import com.rcacao.tactics.teambuild.view.ui.model.TeamBuilderViewState
 import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,28 +20,40 @@ class TeamBuilderViewModel @ViewModelInject @Inject constructor(
     private val mapper: UiSoldierMapper
 ) : ViewModel() {
 
-    private val _uiState = MutableLiveData<TeamBuilderViewState>()
-    val uiState: LiveData<TeamBuilderViewState>
-        get() = _uiState
+    private val _soldierList = MutableLiveData<List<UiSoldier>>()
+    val soldierList: LiveData<List<UiSoldier>>
+        get() = _soldierList
+
+    private val _selectedSoldier = MutableLiveData<UiSoldier>()
+    val selectedSoldier: LiveData<UiSoldier>
+        get() = _selectedSoldier
 
     init {
+        listSoldiers()
+    }
+
+    private fun listSoldiers() {
         viewModelScope.launch {
             when (val result: Result<List<Soldier>> = getSavedSoldiers()) {
-                is Result.Success -> _uiState.value =
-                    TeamBuilderViewState.SoldiersLoad(map(result.data))
+                is Result.Success ->
+                    _soldierList.value = mapper.map(result.data) as ArrayList<UiSoldier>
             }
         }
     }
 
     fun newSoldier() {
         viewModelScope.launch {
-            when (val result: Result<List<Soldier>> = addNewSoldierUseCase()) {
-                is Result.Success -> _uiState.value =
-                    TeamBuilderViewState.SoldiersLoad(map(result.data))
+            when (val result: Result<Soldier> = addNewSoldierUseCase()) {
+                is Result.Success -> {
+                    _selectedSoldier.value = mapper.map(result.data)
+                    listSoldiers()
+                }
             }
         }
     }
 
-    private fun map(soldiers: List<Soldier>): List<UiSoldier> = mapper.map(soldiers)
+    fun selectSoldier(soldier: UiSoldier) {
+        _selectedSoldier.value = soldier
+    }
 
 }

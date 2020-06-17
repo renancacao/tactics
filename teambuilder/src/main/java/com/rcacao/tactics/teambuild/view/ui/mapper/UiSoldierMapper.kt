@@ -23,4 +23,13 @@ class UiSoldierMapper @Inject constructor(private val resProvider: ResourceProvi
         return uiSoldiers
     }
 
+    fun map(soldier: Soldier): UiSoldier = UiSoldier(
+        soldier.id,
+        soldier.stats.hp,
+        soldier.stats.mp,
+        soldier.brave,
+        soldier.faith,
+        resProvider.standPose(soldier.job.id, soldier.sex)
+    )
+
 }

@@ -14,9 +14,8 @@ class SoldierLocalDataSourceImpl @Inject constructor(private val soldiersDataBas
         Result.Error(ex)
     }
 
-    override suspend fun saveSoldier(soldier: DBSoldier): Result<Any> = try {
-        soldiersDataBase.soldiersDao().insert(soldier)
-        Result.Success(Any())
+    override suspend fun saveSoldier(soldier: DBSoldier): Result<Long> = try {
+        Result.Success(soldiersDataBase.soldiersDao().insert(soldier))
     } catch (ex: Exception) {
         Result.Error(ex)
     }

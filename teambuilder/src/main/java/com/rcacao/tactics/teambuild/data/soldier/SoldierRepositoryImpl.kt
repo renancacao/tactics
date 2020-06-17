@@ -66,7 +66,7 @@ class SoldierRepositoryImpl @Inject constructor(
             SoldierStats(dbSoldier.hp, dbSoldier.mp, dbSoldier.sp, dbSoldier.pa, dbSoldier.ma)
         )
 
-    override suspend fun saveSoldier(soldier: Soldier): Result<Any> =
+    override suspend fun saveSoldier(soldier: Soldier): Result<Long> =
         soldierLocalDataSource.saveSoldier(soldier.let {
             DBSoldier(
                 it.id,
