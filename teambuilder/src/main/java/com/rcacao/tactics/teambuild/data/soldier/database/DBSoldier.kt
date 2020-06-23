@@ -25,6 +25,4 @@ class DBSoldier(
     val sp: Int,
     val pa: Int,
     val ma: Int
-) {
-
-}
+)

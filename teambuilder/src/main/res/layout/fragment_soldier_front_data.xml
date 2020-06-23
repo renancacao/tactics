@@ -8,15 +8,17 @@
     tools:ignore="SmallSp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/panelData"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_marginTop="4dp"
-
         android:layout_marginBottom="4dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
 
         <ImageView
             android:id="@+id/imgPortrait"
@@ -158,12 +160,11 @@
 
             <TextView
                 android:id="@+id/textName"
+                style="@style/FrontText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="4dp"
-                android:textSize="12sp"
-                android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textId"
                 app:layout_constraintTop_toTopOf="@+id/textId"
@@ -171,11 +172,10 @@
 
             <TextView
                 android:id="@+id/textJob"
+                style="@style/FrontText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
-                android:textSize="12sp"
-                android:textStyle="italic"
                 app:layout_constraintBottom_toTopOf="@+id/textBravery"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textName"
@@ -184,23 +184,21 @@
 
             <TextView
                 android:id="@+id/textBravery"
+                style="@style/FrontStats"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="4dp"
                 android:text="@string/bravery"
-                android:textSize="10sp"
-                android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textJob" />
 
             <TextView
                 android:id="@+id/textCurrentBravery"
+                style="@style/FrontStats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:textSize="10sp"
-                android:textStyle="italic"
                 app:layout_constraintStart_toEndOf="@+id/textBravery"
                 app:layout_constraintTop_toTopOf="@+id/textBravery"
                 tools:text="99" />
@@ -211,10 +209,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:text="@string/faith"
-                android:textSize="10sp"
-                android:textStyle="italic"
                 app:layout_constraintEnd_toStartOf="@+id/textCurrentFaith"
-                app:layout_constraintTop_toTopOf="@+id/textCurrentBravery" />
+                app:layout_constraintTop_toTopOf="@+id/textCurrentBravery"
+                style="@style/FrontStats" />
 
             <ImageView
                 android:id="@+id/imgZodiac"
@@ -230,11 +227,10 @@
 
             <TextView
                 android:id="@+id/textCurrentFaith"
+                style="@style/FrontStats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
-                android:textSize="10sp"
-                android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textFaith"
                 tools:text="99" />

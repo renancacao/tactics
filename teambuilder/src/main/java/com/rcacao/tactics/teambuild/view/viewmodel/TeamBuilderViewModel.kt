@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rcacao.tactics.core.data.Result
 import com.rcacao.tactics.core.data.soldier.model.Soldier
+import com.rcacao.tactics.core.domain.Event
 import com.rcacao.tactics.teambuild.domain.soldier.AddNewSoldierUseCase
 import com.rcacao.tactics.teambuild.domain.soldier.GetSavedSoldiersUseCase
 import com.rcacao.tactics.teambuild.view.ui.mapper.UiSoldierMapper
@@ -28,6 +29,10 @@ class TeamBuilderViewModel @ViewModelInject @Inject constructor(
     val selectedSoldier: LiveData<UiSoldier>
         get() = _selectedSoldier
 
+    private val _event = MutableLiveData<Event<String>>()
+    val event: LiveData<Event<String>>
+        get() = _event
+
     init {
         listSoldiers()
     }
@@ -37,6 +42,7 @@ class TeamBuilderViewModel @ViewModelInject @Inject constructor(
             when (val result: Result<List<Soldier>> = getSavedSoldiers()) {
                 is Result.Success ->
                     _soldierList.value = mapper.map(result.data) as ArrayList<UiSoldier>
+                is Result.Error -> _event.value = Event(result.exception.message ?: "error")
             }
         }
     }
@@ -48,6 +54,7 @@ class TeamBuilderViewModel @ViewModelInject @Inject constructor(
                     _selectedSoldier.value = mapper.map(result.data)
                     listSoldiers()
                 }
+                is Result.Error -> _event.value = Event(result.exception.message ?: "error")
             }
         }
     }
