@@ -11,4 +11,5 @@
     <string name="bravery">Bravery</string>
     <string name="faith">Faith</string>
     <string name="zodiac">zodiac</string>
+    <string name="base_ct">100</string>
 </resources>

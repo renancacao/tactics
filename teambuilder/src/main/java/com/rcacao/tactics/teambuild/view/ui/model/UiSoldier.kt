@@ -4,10 +4,10 @@ class UiSoldier {
 
     val type: UiSoldierType
     var id: Long? = -1
-    var hp: Int = -1
-    var mp: Int = -1
-    var br: Int = -1
-    var fa: Int = -1
+    var hp: String = ""
+    var mp: String = ""
+    var br: String = ""
+    var fa: String = ""
     var sprite: Int = -1
 
     constructor() {
@@ -17,10 +17,10 @@ class UiSoldier {
     constructor(id: Long?, hp: Int, mp: Int, br: Int, fa: Int, sprite: Int) {
         type = UiSoldierType.SOLDIER
         this.id = id
-        this.hp = hp
-        this.mp = mp
-        this.br = br
-        this.fa = fa
+        this.hp = hp.toString()
+        this.mp = mp.toString()
+        this.br = br.toString()
+        this.fa = fa.toString()
         this.sprite = sprite
     }
 }
