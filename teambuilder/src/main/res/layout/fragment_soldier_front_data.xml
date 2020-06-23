@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/teamBuilderBackColor"
+    tools:ignore="SmallSp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginTop="4dp"
+
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgPortrait"
+            android:layout_width="40dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/portrait_background"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/fc_squire_male" />
+
+        <TextView
+            android:id="@+id/textCt"
+            style="@style/SoldierItemStatsText.Portrait.Labels"
+            android:layout_marginBottom="2dp"
+            android:text="@string/ct"
+            android:textColor="@color/ctColor"
+            app:layout_constraintBottom_toBottomOf="@+id/imgPortrait"
+            app:layout_constraintEnd_toEndOf="@+id/imgPortrait"
+            app:layout_constraintStart_toEndOf="@+id/imgPortrait" />
+
+        <TextView
+            android:id="@+id/textMp"
+            style="@style/SoldierItemStatsText.Portrait.Labels"
+            android:layout_marginBottom="4dp"
+            android:text="@string/mp"
+            android:textColor="@color/mpColor"
+            app:layout_constraintBottom_toTopOf="@+id/textCt"
+            app:layout_constraintEnd_toEndOf="@+id/imgPortrait"
+            app:layout_constraintStart_toEndOf="@+id/imgPortrait" />
+
+        <TextView
+            android:id="@+id/textHp"
+            style="@style/SoldierItemStatsText.Portrait.Labels"
+            android:layout_marginBottom="4dp"
+            android:text="@string/hp"
+            android:textColor="@color/hpColor"
+            app:layout_constraintBottom_toTopOf="@+id/textMp"
+            app:layout_constraintEnd_toEndOf="@+id/imgPortrait"
+            app:layout_constraintStart_toEndOf="@+id/imgPortrait" />
+
+        <TextView
+            android:id="@+id/textCurrentHp"
+            style="@style/SoldierItemStatsText.Portrait.CurrentStatus"
+            android:textColor="@color/hpColor"
+            app:layout_constraintStart_toEndOf="@+id/textHp"
+            app:layout_constraintTop_toTopOf="@+id/textHp"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/textHpBar"
+            style="@style/SoldierItemStatsText.Portrait.Bar"
+            android:text="@string/bar"
+            android:textColor="@color/hpColor"
+            app:layout_constraintStart_toEndOf="@+id/textCurrentHp"
+            app:layout_constraintTop_toTopOf="@+id/textCurrentHp" />
+
+        <TextView
+            android:id="@+id/textTotalHp"
+            style="@style/SoldierItemStatsText.Portrait.TotalStatus"
+            android:textColor="@color/hpColor"
+            app:layout_constraintStart_toEndOf="@+id/textHpBar"
+            app:layout_constraintTop_toTopOf="@+id/textHpBar"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/textCurrentMp"
+            style="@style/SoldierItemStatsText.Portrait.CurrentStatus"
+            android:textColor="@color/mpColor"
+            app:layout_constraintStart_toEndOf="@+id/textMp"
+            app:layout_constraintTop_toTopOf="@+id/textMp"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/textMpBar"
+            style="@style/SoldierItemStatsText.Portrait.Bar"
+            android:text="@string/bar"
+            android:textColor="@color/mpColor"
+            app:layout_constraintStart_toEndOf="@+id/textCurrentMp"
+            app:layout_constraintTop_toTopOf="@+id/textCurrentMp" />
+
+        <TextView
+            android:id="@+id/textTotalMp"
+            style="@style/SoldierItemStatsText.Portrait.TotalStatus"
+            android:textColor="@color/mpColor"
+            app:layout_constraintStart_toEndOf="@+id/textMpBar"
+            app:layout_constraintTop_toTopOf="@+id/textMpBar"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/textCurrentCt"
+            style="@style/SoldierItemStatsText.Portrait.CurrentStatus"
+            android:textColor="@color/ctColor"
+            app:layout_constraintStart_toEndOf="@+id/textCt"
+            app:layout_constraintTop_toTopOf="@+id/textCt"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/textCtBar"
+            style="@style/SoldierItemStatsText.Portrait.Bar"
+            android:text="@string/bar"
+            android:textColor="@color/ctColor"
+            app:layout_constraintStart_toEndOf="@+id/textCurrentCt"
+            app:layout_constraintTop_toTopOf="@+id/textCurrentCt" />
+
+        <TextView
+            android:id="@+id/textTotalCt"
+            style="@style/SoldierItemStatsText.Portrait.TotalStatus"
+            android:textColor="@color/ctColor"
+            app:layout_constraintStart_toEndOf="@+id/textCtBar"
+            app:layout_constraintTop_toTopOf="@+id/textCtBar"
+            tools:text="100" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="130dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/portrait_background"
+            app:layout_constraintBottom_toBottomOf="@+id/imgPortrait"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textTotalMp"
+            app:layout_constraintTop_toTopOf="@+id/imgPortrait">
+
+            <TextView
+                android:id="@+id/textId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="8sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/imgZodiac"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="01" />
+
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="4dp"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textId"
+                app:layout_constraintTop_toTopOf="@+id/textId"
+                tools:text="Michelangelo" />
+
+            <TextView
+                android:id="@+id/textJob"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/textBravery"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textName"
+                app:layout_constraintTop_toBottomOf="@+id/textName"
+                tools:text="Squire" />
+
+            <TextView
+                android:id="@+id/textBravery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/bravery"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textJob" />
+
+            <TextView
+                android:id="@+id/textCurrentBravery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toEndOf="@+id/textBravery"
+                app:layout_constraintTop_toTopOf="@+id/textBravery"
+                tools:text="99" />
+
+            <TextView
+                android:id="@+id/textFaith"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:text="@string/faith"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toStartOf="@+id/textCurrentFaith"
+                app:layout_constraintTop_toTopOf="@+id/textCurrentBravery" />
+
+            <ImageView
+                android:id="@+id/imgZodiac"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="4dp"
+                android:alpha=".2"
+                android:contentDescription="@string/zodiac"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@drawable/z_sagittarius" />
+
+            <TextView
+                android:id="@+id/textCurrentFaith"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textFaith"
+                tools:text="99" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

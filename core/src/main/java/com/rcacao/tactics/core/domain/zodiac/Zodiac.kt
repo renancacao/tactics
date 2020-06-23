@@ -12,6 +12,5 @@ enum class Zodiac {
     SAGITTARIUS,
     CAPRICORN,
     AQUARIUS,
-    PISCES,
-    SERPENTARIUS
+    PISCES
 }

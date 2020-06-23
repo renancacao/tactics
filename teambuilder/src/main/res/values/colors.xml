@@ -3,4 +3,7 @@
     <color name="itemBackColor">#161022</color>
     <color name="selectedItemBackColor">#31244A</color>
     <color name="teamBuilderBackColor">#0B0810</color>
+    <color name="hpColor">#E53935</color>
+    <color name="mpColor">#1E88E5</color>
+    <color name="ctColor">#43A047</color>
 </resources>

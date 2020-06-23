@@ -15,4 +15,33 @@
         <item name="android:layout_width">120dp</item>
         <item name="android:layout_height">120dp</item>
     </style>
+
+    <style name="SoldierItemStatsText.Portrait">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="SoldierItemStatsText.Portrait.Labels">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="SoldierItemStatsText.Portrait.CurrentStatus">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">2dp</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="SoldierItemStatsText.Portrait.TotalStatus">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">1dp</item>
+    </style>
+
+    <style name="SoldierItemStatsText.Portrait.Bar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">1dp</item>
+    </style>
 </resources>

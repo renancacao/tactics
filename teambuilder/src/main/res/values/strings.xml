@@ -6,4 +6,9 @@
     <string name="mp">Mp</string>
     <string name="br">Br</string>
     <string name="fa">Fa</string>
+    <string name="ct">Ct</string>
+    <string name="bar">/</string>
+    <string name="bravery">Bravery</string>
+    <string name="faith">Faith</string>
+    <string name="zodiac">zodiac</string>
 </resources>
