@@ -49,6 +49,7 @@ dependencies {
     implementation project(':resources')
 
     kapt 'com.android.databinding:compiler:3.1.4'
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
 
     implementation "androidx.fragment:fragment-ktx:1.2.5"
 

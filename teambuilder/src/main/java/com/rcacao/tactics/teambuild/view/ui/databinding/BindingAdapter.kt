@@ -1,10 +1,34 @@
 package com.rcacao.tactics.teambuild.view.ui.databinding
 
 import android.view.View
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
 
-@BindingAdapter("app:hideIfNull")
-fun hideIfNull(view: View, soldier: UiSoldier?) {
-    view.visibility = if (soldier == null) View.INVISIBLE else View.VISIBLE
+@BindingAdapter("app:showIfExists")
+fun showIfExists(view: View, soldier: UiSoldier?) {
+    if (soldier == null) {
+        view.visibility = View.GONE
+    } else {
+        setVisible(view)
+    }
+}
+
+fun setVisible(view: View) {
+    if (view.visibility != View.VISIBLE) {
+        view.apply {
+            alpha = 0f
+            visibility = View.VISIBLE
+            animate()
+                .alpha(1f)
+                .setDuration(200)
+                .setListener(null)
+        }
+    }
+}
+
+@BindingAdapter("app:imageRes")
+fun imageRes(view: ImageView, resId: Int) {
+    view.setImageResource(resId)
+
 }
