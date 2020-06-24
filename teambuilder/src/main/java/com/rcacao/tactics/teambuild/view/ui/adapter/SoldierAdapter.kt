@@ -4,12 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rcacao.tactics.teambuild.R
+import com.rcacao.tactics.teambuild.view.ui.model.SoldierListItem
 import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
-import com.rcacao.tactics.teambuild.view.ui.model.UiSoldierType
 import com.rcacao.tactics.teambuild.view.viewmodel.TeamBuilderViewModel
 
 class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
     RecyclerView.Adapter<SoldierAdapterViewHolder>() {
+
+    private val soldierType: Int = 0
+    private val addType: Int = 1
 
     var selectedSoldier: UiSoldier? = null
         set(value) {
@@ -17,7 +20,7 @@ class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
             notifyDataSetChanged()
         }
 
-    var soldiers: List<UiSoldier> = emptyList()
+    var soldiers: List<SoldierListItem> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -25,7 +28,7 @@ class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SoldierAdapterViewHolder {
         return when (viewType) {
-            UiSoldierType.SOLDIER.ordinal -> createSoldierViewHolder(parent)
+            soldierType -> createSoldierViewHolder(parent)
             else -> createAddViewHolder(parent)
         }
     }
@@ -44,21 +47,24 @@ class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
         return SoldierViewHolder(view)
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return soldiers[position].type.ordinal
+    override fun getItemViewType(position: Int): Int = when (soldiers[position]) {
+        is UiSoldier -> soldierType
+        else -> addType
     }
 
     override fun getItemCount(): Int = soldiers.size
 
     override fun onBindViewHolder(holder: SoldierAdapterViewHolder, position: Int) =
         if (holder is SoldierViewHolder) {
-            bindSoldierViewHolder(position, holder)
+            bindSoldierViewHolder(holder, soldiers[position] as UiSoldier)
         } else {
             holder.itemView.setOnClickListener { viewModel.newSoldier() }
         }
 
-    private fun bindSoldierViewHolder(position: Int, holder: SoldierViewHolder) {
-        val soldier: UiSoldier = soldiers[position]
+    private fun bindSoldierViewHolder(
+        holder: SoldierViewHolder,
+        soldier: UiSoldier
+    ) {
         val selected = soldier.id == selectedSoldier?.id
         holder.bind(soldier, selected, onItemClick())
     }

@@ -11,6 +11,7 @@ import com.rcacao.tactics.core.domain.Event
 import com.rcacao.tactics.teambuild.domain.soldier.AddNewSoldierUseCase
 import com.rcacao.tactics.teambuild.domain.soldier.GetSavedSoldiersUseCase
 import com.rcacao.tactics.teambuild.view.ui.mapper.UiSoldierMapper
+import com.rcacao.tactics.teambuild.view.ui.model.SoldierListItem
 import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,8 +22,8 @@ class TeamBuilderViewModel @ViewModelInject @Inject constructor(
     private val mapper: UiSoldierMapper
 ) : ViewModel() {
 
-    private val _soldierList = MutableLiveData<List<UiSoldier>>()
-    val soldierList: LiveData<List<UiSoldier>>
+    private val _soldierList = MutableLiveData<List<SoldierListItem>>()
+    val soldierList: LiveData<List<SoldierListItem>>
         get() = _soldierList
 
     private val _selectedSoldier = MutableLiveData<UiSoldier>()
@@ -41,7 +42,7 @@ class TeamBuilderViewModel @ViewModelInject @Inject constructor(
         viewModelScope.launch {
             when (val result: Result<List<Soldier>> = getSavedSoldiers()) {
                 is Result.Success ->
-                    _soldierList.value = mapper.map(result.data) as ArrayList<UiSoldier>
+                    _soldierList.value = mapper.map(result.data) as ArrayList<SoldierListItem>
                 is Result.Error -> _event.value = Event(result.exception.message ?: "error")
             }
         }
