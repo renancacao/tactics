@@ -24,7 +24,8 @@ class UiSoldierMapper @Inject constructor(private val resProvider: ResourceProvi
                     resProvider.portrait(it.job.id, it.sex),
                     resProvider.zodiacSymbol(it.zodiac)
                 )
-            } as MutableList<SoldierListItem>
+            }.toMutableList()
+
         soldierList.add(AddItem())
         return soldierList
     }
