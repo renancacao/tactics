@@ -1,5 +1,5 @@
 package com.rcacao.tactics.teambuild.view.ui.adapter
 
-import android.view.View
+import com.rcacao.tactics.teambuild.databinding.ItemAddBinding
 
-class AddViewHolder(view: View) : SoldierAdapterViewHolder(view)
+class AddViewHolder(val binding: ItemAddBinding) : SoldierAdapterViewHolder(binding.root)

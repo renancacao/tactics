@@ -1,128 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
-    style="@style/ItemSquare"
-    android:layout_margin="2dp"
-    android:background="@color/itemBackColor"
-    tools:ignore="SmallSp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imgChar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="2dp"
-        android:importantForAccessibility="no"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/tb_squire_male" />
+    <data>
+
+        <variable
+            name="soldier"
+            type="com.rcacao.tactics.teambuild.view.ui.model.UiSoldier" />
+
+        <variable
+            name="viewModel"
+            type="com.rcacao.tactics.teambuild.view.viewmodel.TeamBuilderViewModel" />
+
+        <variable
+            name="selectedId"
+            type="Long" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="2dp"
+        android:background="@color/itemBackColor"
+        android:onClick="@{() -> viewModel.selectSoldier(soldier)}"
+        app:isSelected="@{soldier.id == selectedId}"
+        tools:ignore="SmallSp">
+
+        <ImageView
+            android:id="@+id/imgChar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="2dp"
+            android:importantForAccessibility="no"
+            app:imageRes="@{soldier.sprite}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/tb_squire_male" />
 
 
-    <TextView
-        android:id="@+id/textHp"
-        style="@style/SoldierItemStatsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="@string/hp"
-        app:layout_constraintEnd_toEndOf="@+id/textCurrentBrave"
-        app:layout_constraintTop_toBottomOf="@+id/textCurrentBrave" />
+        <TextView
+            android:id="@+id/textHp"
+            style="@style/SoldierItemStatsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/hp"
+            android:textColor="@color/hpColor"
+            app:layout_constraintEnd_toEndOf="@+id/textCurrentBrave"
+            app:layout_constraintTop_toBottomOf="@+id/textCurrentBrave" />
 
-    <TextView
-        android:id="@+id/textMp"
-        style="@style/SoldierItemStatsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="@string/mp"
-        app:layout_constraintEnd_toEndOf="@+id/textHp"
-        app:layout_constraintTop_toBottomOf="@+id/textHp" />
+        <TextView
+            android:id="@+id/textMp"
+            style="@style/SoldierItemStatsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/mp"
+            android:textColor="@color/mpColor"
+            app:layout_constraintEnd_toEndOf="@+id/textHp"
+            app:layout_constraintTop_toBottomOf="@+id/textHp" />
 
-    <TextView
-        android:id="@+id/textCurrentHp"
-        style="@style/SoldierItemStatsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:textAlignment="textEnd"
-        app:layout_constraintStart_toStartOf="@+id/textFaith"
-        app:layout_constraintTop_toBottomOf="@+id/textFaith"
-        tools:text="9999" />
+        <TextView
+            android:id="@+id/textCurrentHp"
+            style="@style/SoldierItemStatsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@{soldier.hp}"
+            android:textAlignment="textEnd"
+            android:textColor="@color/hpColor"
+            app:layout_constraintStart_toStartOf="@+id/textFaith"
+            app:layout_constraintTop_toBottomOf="@+id/textFaith"
+            tools:text="9999" />
 
-    <TextView
-        android:id="@+id/textCurrentMp"
-        style="@style/SoldierItemStatsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textAlignment="textEnd"
-        app:layout_constraintStart_toStartOf="@+id/textCurrentHp"
-        app:layout_constraintTop_toBottomOf="@+id/textCurrentHp"
-        tools:text="9999" />
+        <TextView
+            android:id="@+id/textCurrentMp"
+            style="@style/SoldierItemStatsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@{soldier.mp}"
+            android:textAlignment="textEnd"
+            android:textColor="@color/mpColor"
+            app:layout_constraintStart_toStartOf="@+id/textCurrentHp"
+            app:layout_constraintTop_toBottomOf="@+id/textCurrentHp"
+            tools:text="9999" />
 
-    <TextView
-        android:id="@+id/textBrave"
-        style="@style/SoldierBrFaText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="2dp"
-        android:text="@string/br"
-        app:layout_constraintBottom_toBottomOf="@+id/textCurrentBrave"
-        app:layout_constraintEnd_toStartOf="@+id/textCurrentBrave"
-        app:layout_constraintTop_toTopOf="@+id/textCurrentBrave" />
+        <TextView
+            android:id="@+id/textBrave"
+            style="@style/SoldierBrFaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="2dp"
+            android:text="@string/br"
+            app:layout_constraintBottom_toBottomOf="@+id/textCurrentBrave"
+            app:layout_constraintEnd_toStartOf="@+id/textCurrentBrave"
+            app:layout_constraintTop_toTopOf="@+id/textCurrentBrave" />
 
-    <TextView
-        android:id="@+id/textCurrentBrave"
-        style="@style/SoldierBrFaText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        tools:text="99" />
+        <TextView
+            android:id="@+id/textCurrentBrave"
+            style="@style/SoldierBrFaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="@{soldier.br}"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            tools:text="99" />
 
-    <TextView
-        android:id="@+id/textFaith"
-        style="@style/SoldierBrFaText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/fa"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        <TextView
+            android:id="@+id/textFaith"
+            style="@style/SoldierBrFaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/fa"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-    <TextView
-        android:id="@+id/textCurrentFaith"
-        style="@style/SoldierBrFaText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textFaith"
-        app:layout_constraintStart_toEndOf="@+id/textFaith"
-        app:layout_constraintTop_toTopOf="@+id/textFaith"
-        tools:text="99" />
+        <TextView
+            android:id="@+id/textCurrentFaith"
+            style="@style/SoldierBrFaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="@{soldier.fa}"
+            app:layout_constraintBottom_toBottomOf="@+id/textFaith"
+            app:layout_constraintStart_toEndOf="@+id/textFaith"
+            app:layout_constraintTop_toTopOf="@+id/textFaith"
+            tools:text="99" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".5" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".5" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

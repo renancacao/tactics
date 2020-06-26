@@ -34,6 +34,7 @@ class SoldierListFragment : Fragment() {
 
         soldierAdapter =
             SoldierAdapter(viewModel)
+        soldierAdapter.setHasStableIds(true)
         soldierRecyclerView.layoutManager = GridLayoutManager(activity, 3)
         soldierRecyclerView.adapter = soldierAdapter
         initViewModelObserver()
@@ -44,7 +45,7 @@ class SoldierListFragment : Fragment() {
             soldierAdapter.soldiers = it
         })
         viewModel.selectedSoldier.observe(viewLifecycleOwner, Observer {
-            soldierAdapter.selectedSoldier = it
+            soldierAdapter.selectedId = it.id
         })
     }
 

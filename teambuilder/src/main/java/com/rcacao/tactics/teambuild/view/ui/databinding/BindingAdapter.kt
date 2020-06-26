@@ -3,6 +3,7 @@ package com.rcacao.tactics.teambuild.view.ui.databinding
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import com.rcacao.tactics.teambuild.R
 import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
 
 @BindingAdapter("app:showIfExists")
@@ -30,5 +31,10 @@ fun setVisible(view: View) {
 @BindingAdapter("app:imageRes")
 fun imageRes(view: ImageView, resId: Int) {
     view.setImageResource(resId)
+}
 
+@BindingAdapter("app:isSelected")
+fun isSelected(view: View, isSelected: Boolean) {
+    val color: Int = if (isSelected) R.color.selectedItemBackColor else R.color.itemBackColor
+    view.setBackgroundResource(color)
 }
