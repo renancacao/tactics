@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.rcacao.tactics.teambuild.R
 import com.rcacao.tactics.teambuild.view.ui.adapter.SoldierAdapter
+import com.rcacao.tactics.teambuild.view.viewmodel.TeamBuilderUiEvent
 import com.rcacao.tactics.teambuild.view.viewmodel.TeamBuilderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_soldiers_list.*
@@ -41,12 +42,15 @@ class SoldierListFragment : Fragment() {
     }
 
     private fun initViewModelObserver() {
-        viewModel.soldierList.observe(viewLifecycleOwner, Observer {
-            soldierAdapter.soldiers = it
+        viewModel.event.observe(viewLifecycleOwner, Observer { event ->
+            event.getContentIfNotHandled()?.let(this::handleEvent)
         })
-        viewModel.selectedSoldier.observe(viewLifecycleOwner, Observer {
-            soldierAdapter.selectedId = it.id
-        })
+    }
+
+    private fun handleEvent(event: TeamBuilderUiEvent) {
+        if (event is TeamBuilderUiEvent.UpdateSoldiers) {
+            soldierAdapter.notifyDataSetChanged()
+        }
     }
 
 }

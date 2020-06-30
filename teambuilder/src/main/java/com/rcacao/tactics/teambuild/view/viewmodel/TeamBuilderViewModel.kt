@@ -16,7 +16,7 @@ import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class TeamBuilderViewModel @ViewModelInject @Inject constructor(
+open class TeamBuilderViewModel @ViewModelInject @Inject constructor(
     private val getSavedSoldiers: GetSavedSoldiersUseCase,
     private val addNewSoldierUseCase: AddNewSoldierUseCase,
     private val mapper: UiSoldierMapper
@@ -30,9 +30,17 @@ class TeamBuilderViewModel @ViewModelInject @Inject constructor(
     val selectedSoldier: LiveData<UiSoldier>
         get() = _selectedSoldier
 
-    private val _event = MutableLiveData<Event<String>>()
-    val event: LiveData<Event<String>>
+    private val _selectedId = MutableLiveData<Long?>()
+    val selectedId: LiveData<Long?>
+        get() = _selectedId
+
+    private val _event = MutableLiveData<Event<TeamBuilderUiEvent>>()
+    val event: LiveData<Event<TeamBuilderUiEvent>>
         get() = _event
+
+    private val _error = MutableLiveData<Event<String>>()
+    val error: LiveData<Event<String>>
+        get() = _error
 
     init {
         listSoldiers()
@@ -41,9 +49,11 @@ class TeamBuilderViewModel @ViewModelInject @Inject constructor(
     private fun listSoldiers() {
         viewModelScope.launch {
             when (val result: Result<List<Soldier>> = getSavedSoldiers()) {
-                is Result.Success ->
+                is Result.Success -> {
                     _soldierList.value = mapper.map(result.data) as ArrayList<SoldierListItem>
-                is Result.Error -> _event.value = Event(result.exception.message ?: "error")
+                    dataUpdated()
+                }
+                is Result.Error -> _error.value = Event(result.exception.message ?: "error")
             }
         }
     }
@@ -52,16 +62,26 @@ class TeamBuilderViewModel @ViewModelInject @Inject constructor(
         viewModelScope.launch {
             when (val result: Result<Soldier> = addNewSoldierUseCase()) {
                 is Result.Success -> {
-                    _selectedSoldier.value = mapper.map(result.data)
-                    listSoldiers()
+                    selectNewSoldier(result.data)
                 }
-                is Result.Error -> _event.value = Event(result.exception.message ?: "error")
+                is Result.Error -> _error.value = Event(result.exception.message ?: "error")
             }
         }
     }
 
+    private fun selectNewSoldier(soldier: Soldier) {
+        listSoldiers()
+        selectSoldier(mapper.map(soldier))
+    }
+
     fun selectSoldier(soldier: UiSoldier) {
         _selectedSoldier.value = soldier
+        _selectedId.value = soldier.id
+        dataUpdated()
+    }
+
+    private fun dataUpdated() {
+        _event.value = Event(TeamBuilderUiEvent.UpdateSoldiers)
     }
 
 }

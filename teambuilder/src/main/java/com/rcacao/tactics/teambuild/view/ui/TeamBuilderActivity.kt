@@ -20,7 +20,7 @@ class TeamBuilderActivity : FullScreenActivity() {
     }
 
     private fun initViewModelObserver() {
-        viewModel.event.observe(this, Observer { event ->
+        viewModel.error.observe(this, Observer { event ->
             event.getContentIfNotHandled()?.let {
                 Toast.makeText(this, it, Toast.LENGTH_LONG).show()
             }

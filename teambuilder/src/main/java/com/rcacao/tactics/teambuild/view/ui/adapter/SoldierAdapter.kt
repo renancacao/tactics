@@ -15,18 +15,6 @@ class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
     private val soldierType: Int = 0
     private val addType: Int = 1
 
-    var selectedId: Long? = null
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-
-    var soldiers: List<SoldierListItem> = emptyList()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SoldierAdapterViewHolder {
         return when (viewType) {
             soldierType -> createSoldierViewHolder(parent)
@@ -46,27 +34,33 @@ class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
         return SoldierViewHolder(binding)
     }
 
-    override fun getItemViewType(position: Int): Int = when (soldiers[position]) {
-        is UiSoldier -> soldierType
-        else -> addType
-    }
+    override fun getItemViewType(position: Int): Int = viewModel.soldierList.value?.let {
+        when (it[position]) {
+            is UiSoldier -> soldierType
+            else -> addType
+        }
+    } ?: addType
 
-    override fun getItemCount(): Int = soldiers.size
+    override fun getItemCount(): Int = viewModel.soldierList.value?.let { it.size } ?: 0
 
     override fun onBindViewHolder(holder: SoldierAdapterViewHolder, position: Int) {
         if (holder is SoldierViewHolder) {
-            holder.binding.soldier = soldiers[position] as UiSoldier
+            holder.binding.soldier = viewModel.soldierList.value?.get(position) as UiSoldier
             holder.binding.viewModel = viewModel
-            holder.binding.selectedId = selectedId
         } else if (holder is AddViewHolder) {
             holder.binding.viewModel = viewModel
         }
     }
 
-    override fun getItemId(position: Int): Long =
-        when (val item: SoldierListItem = soldiers[position]) {
+    override fun getItemId(position: Int): Long {
+        return getItemSoldierId(position) ?: -1
+    }
+
+    private fun getItemSoldierId(position: Int) = viewModel.soldierList.value?.let {
+        when (val item: SoldierListItem = it[position]) {
             is UiSoldier -> item.id ?: -1
             else -> -1
         }
+    }
 
 }

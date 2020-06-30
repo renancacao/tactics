@@ -13,10 +13,6 @@
             name="viewModel"
             type="com.rcacao.tactics.teambuild.view.viewmodel.TeamBuilderViewModel" />
 
-        <variable
-            name="selectedId"
-            type="Long" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +22,7 @@
         android:layout_margin="2dp"
         android:background="@color/itemBackColor"
         android:onClick="@{() -> viewModel.selectSoldier(soldier)}"
-        app:isSelected="@{soldier.id == selectedId}"
+        app:isSelected="@{soldier.id == viewModel.selectedId}"
         tools:ignore="SmallSp">
 
         <ImageView
