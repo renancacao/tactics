@@ -7,7 +7,7 @@
 
         <variable
             name="soldier"
-            type="com.rcacao.tactics.teambuild.view.ui.model.UiSoldier" />
+            type="com.rcacao.tactics.teambuild.view.model.UiSoldier" />
 
         <variable
             name="viewModel"

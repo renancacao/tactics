@@ -1,10 +1,10 @@
-package com.rcacao.tactics.teambuild.view.ui.mapper
+package com.rcacao.tactics.teambuild.view.viewmodel.mapper
 
 import com.rcacao.tactics.core.data.soldier.model.Soldier
 import com.rcacao.tactics.resources.ResourceProvider
+import com.rcacao.tactics.teambuild.view.model.UiSoldier
 import com.rcacao.tactics.teambuild.view.ui.model.AddItem
 import com.rcacao.tactics.teambuild.view.ui.model.SoldierListItem
-import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
 import javax.inject.Inject
 
 class UiSoldierMapper @Inject constructor(private val resProvider: ResourceProvider) {
@@ -30,17 +30,18 @@ class UiSoldierMapper @Inject constructor(private val resProvider: ResourceProvi
         return soldierList
     }
 
-    fun map(soldier: Soldier): UiSoldier = UiSoldier(
-        soldier.id,
-        soldier.name,
-        soldier.job.name,
-        soldier.stats.hp.toString(),
-        soldier.stats.mp.toString(),
-        soldier.brave.toString(),
-        soldier.faith.toString(),
-        resProvider.standPose(soldier.job.id, soldier.sex),
-        resProvider.portrait(soldier.job.id, soldier.sex),
-        resProvider.zodiacSymbol(soldier.zodiac)
-    )
+    fun map(soldier: Soldier): UiSoldier =
+        UiSoldier(
+            soldier.id,
+            soldier.name,
+            soldier.job.name,
+            soldier.stats.hp.toString(),
+            soldier.stats.mp.toString(),
+            soldier.brave.toString(),
+            soldier.faith.toString(),
+            resProvider.standPose(soldier.job.id, soldier.sex),
+            resProvider.portrait(soldier.job.id, soldier.sex),
+            resProvider.zodiacSymbol(soldier.zodiac)
+        )
 
 }

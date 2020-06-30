@@ -10,9 +10,9 @@ import com.rcacao.tactics.core.data.soldier.model.Soldier
 import com.rcacao.tactics.core.domain.Event
 import com.rcacao.tactics.teambuild.domain.soldier.AddNewSoldierUseCase
 import com.rcacao.tactics.teambuild.domain.soldier.GetSavedSoldiersUseCase
-import com.rcacao.tactics.teambuild.view.ui.mapper.UiSoldierMapper
+import com.rcacao.tactics.teambuild.view.model.UiSoldier
 import com.rcacao.tactics.teambuild.view.ui.model.SoldierListItem
-import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
+import com.rcacao.tactics.teambuild.view.viewmodel.mapper.UiSoldierMapper
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

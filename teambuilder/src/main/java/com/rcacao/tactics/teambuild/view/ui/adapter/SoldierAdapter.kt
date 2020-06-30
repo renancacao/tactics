@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rcacao.tactics.teambuild.databinding.ItemAddBinding
 import com.rcacao.tactics.teambuild.databinding.ItemSoldierBinding
+import com.rcacao.tactics.teambuild.view.model.UiSoldier
 import com.rcacao.tactics.teambuild.view.ui.model.SoldierListItem
-import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
 import com.rcacao.tactics.teambuild.view.viewmodel.TeamBuilderViewModel
 
 class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
@@ -41,7 +41,7 @@ class SoldierAdapter(private val viewModel: TeamBuilderViewModel) :
         }
     } ?: addType
 
-    override fun getItemCount(): Int = viewModel.soldierList.value?.let { it.size } ?: 0
+    override fun getItemCount(): Int = viewModel.soldierList.value?.size ?: 0
 
     override fun onBindViewHolder(holder: SoldierAdapterViewHolder, position: Int) {
         if (holder is SoldierViewHolder) {

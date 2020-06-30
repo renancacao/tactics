@@ -1,4 +1,6 @@
-package com.rcacao.tactics.teambuild.view.ui.model
+package com.rcacao.tactics.teambuild.view.model
+
+import com.rcacao.tactics.teambuild.view.ui.model.SoldierListItem
 
 class UiSoldier(
     val id: Long?,

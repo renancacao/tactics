@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.rcacao.tactics.teambuild.R
-import com.rcacao.tactics.teambuild.view.ui.model.UiSoldier
+import com.rcacao.tactics.teambuild.view.model.UiSoldier
 
 @BindingAdapter("app:showIfExists")
 fun showIfExists(view: View, soldier: UiSoldier?) {
