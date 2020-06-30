@@ -7,10 +7,18 @@
     <string name="br">Br</string>
     <string name="fa">Fa</string>
     <string name="ct">Ct</string>
-    <string name="bar">/</string>
     <string name="bravery">Bravery</string>
     <string name="faith">Faith</string>
     <string name="zodiac">zodiac</string>
     <string name="base_ct">100</string>
     <string name="expand">Expandir</string>
+    <string name="stats_dots">...</string>
+    <string name="speed">Speed</string>
+    <string name="jump">Jump</string>
+    <string name="move">Move</string>
+    <string name="weapon_power">Weapon Power</string>
+    <string name="r">R</string>
+    <string name="l">L</string>
+    <string name="percent">%</string>
+    <string name="bar">/</string>
 </resources>
