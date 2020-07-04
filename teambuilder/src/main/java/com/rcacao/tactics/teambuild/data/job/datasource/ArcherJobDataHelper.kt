@@ -18,7 +18,7 @@ class ArcherJobDataHelper : JobDataHelper(
     description = "Equipped with a bow and arrow, this warrior provides valuable long-range attacks. May Aim for higher damage.",
     move = 3,
     jump = 3,
-    pev = 0.1f,
+    pev = 10,
     skillName = "Aim",
     skillDescription = "Archer job command. Allows attacks to be carefully aimed in order to deal greater damage."
 ) {

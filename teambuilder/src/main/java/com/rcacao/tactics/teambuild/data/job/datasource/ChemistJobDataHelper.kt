@@ -23,7 +23,7 @@ class ChemistJobDataHelper : JobDataHelper(
     description = "An expert in the use of items to recover HP or remove vexing status ailments.",
     move = 3,
     jump = 3,
-    pev = 0.05f,
+    pev = 5,
     skillName = "Items",
     skillDescription = "Chemist job command. Enables the use of items to assist allies in need."
 ) {

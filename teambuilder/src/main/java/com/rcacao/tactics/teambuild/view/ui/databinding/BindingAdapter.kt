@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import com.rcacao.tactics.teambuild.R
 import com.rcacao.tactics.teambuild.view.model.UiSoldier
 
-@BindingAdapter("app:showIfExists")
+@BindingAdapter("showIfExists")
 fun showIfExists(view: View, soldier: UiSoldier?) {
     if (soldier == null) {
         view.visibility = View.GONE
@@ -28,12 +28,12 @@ fun setVisible(view: View) {
     }
 }
 
-@BindingAdapter("app:imageRes")
+@BindingAdapter("imageRes")
 fun imageRes(view: ImageView, resId: Int) {
     view.setImageResource(resId)
 }
 
-@BindingAdapter("app:isSelected")
+@BindingAdapter("isSelected")
 fun isSelected(view: View, isSelected: Boolean) {
     val color: Int = if (isSelected) R.color.selectedItemBackColor else R.color.itemBackColor
     view.setBackgroundResource(color)

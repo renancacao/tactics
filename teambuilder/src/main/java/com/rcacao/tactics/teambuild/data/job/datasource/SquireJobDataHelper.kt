@@ -24,7 +24,7 @@ class SquireJobDataHelper : JobDataHelper(
     description = "This job serves as the foundation for all others, forming the first step on the road to becoming a legendary warrior.",
     move = 4,
     jump = 3,
-    pev = 0.05f,
+    pev = 5,
     skillName = "Fundaments",
     skillDescription = "Squire job command. These are the most fundamental of all battle techniques."
 ) {

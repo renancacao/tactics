@@ -16,7 +16,7 @@ abstract class JobDataHelper(
     val description: String,
     private val move: Int,
     private val jump: Int,
-    private val pev: Float,
+    private val pev: Int,
     private val skillName: String,
     private val skillDescription: String
 ) {

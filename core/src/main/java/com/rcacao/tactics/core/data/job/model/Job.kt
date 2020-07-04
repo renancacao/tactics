@@ -8,7 +8,7 @@ data class Job(
     val description: String,
     val move: Int,
     val jump: Int,
-    val pev: Float,
+    val pev: Int,
     val baseStats: BaseStats,
     val cStats: CStats,
     val skills: JobSkill
