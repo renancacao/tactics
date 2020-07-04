@@ -15,4 +15,5 @@
 .externalNativeBuild
 .cxx
 /.idea/jarRepositories.xml
-/.idea
+/.idea/*
+/.idea/dictionaries/
