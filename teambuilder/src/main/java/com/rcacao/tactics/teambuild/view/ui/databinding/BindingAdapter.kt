@@ -11,20 +11,7 @@ fun showIfExists(view: View, soldier: UiSoldier?) {
     if (soldier == null) {
         view.visibility = View.GONE
     } else {
-        setVisible(view)
-    }
-}
-
-fun setVisible(view: View) {
-    if (view.visibility != View.VISIBLE) {
-        view.apply {
-            alpha = 0f
-            visibility = View.VISIBLE
-            animate()
-                .alpha(1f)
-                .setDuration(200)
-                .setListener(null)
-        }
+        view.visibility = View.VISIBLE
     }
 }
 
@@ -37,4 +24,22 @@ fun imageRes(view: ImageView, resId: Int) {
 fun isSelected(view: View, isSelected: Boolean) {
     val color: Int = if (isSelected) R.color.selectedItemBackColor else R.color.itemBackColor
     view.setBackgroundResource(color)
+}
+
+@BindingAdapter("isExpanded")
+fun isExpanded(view: View, isExpanded: Boolean) {
+    if (isExpanded) {
+        view.visibility = View.VISIBLE
+    } else {
+        view.visibility = View.GONE
+    }
+}
+
+@BindingAdapter("expandedIcon")
+fun expandedIcon(view: ImageView, isExpanded: Boolean) {
+    if (isExpanded) {
+        view.setImageResource(R.drawable.ic_baseline_arrow_drop_down_24)
+    } else {
+        view.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24)
+    }
 }

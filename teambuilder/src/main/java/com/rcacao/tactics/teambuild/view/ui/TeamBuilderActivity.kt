@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.rcacao.tactics.teambuild.R
+import com.rcacao.tactics.teambuild.databinding.ActivityTeamBuilderBinding
 import com.rcacao.tactics.teambuild.view.viewmodel.TeamBuilderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,8 +15,14 @@ class TeamBuilderActivity : FullScreenActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_team_builder)
+        val binding: ActivityTeamBuilderBinding = ActivityTeamBuilderBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         initViewModelObserver()
+
+        binding.lifecycleOwner = this
+        binding.viewmodel = viewModel
+        binding.executePendingBindings()
     }
 
     private fun initViewModelObserver() {

@@ -42,8 +42,13 @@ open class TeamBuilderViewModel @ViewModelInject @Inject constructor(
     val error: LiveData<Event<String>>
         get() = _error
 
+    private val _expanded = MutableLiveData<Boolean>()
+    val isExpanded: LiveData<Boolean>
+        get() = _expanded
+
     init {
         listSoldiers()
+        _expanded.value = false
     }
 
     private fun listSoldiers() {
@@ -78,6 +83,11 @@ open class TeamBuilderViewModel @ViewModelInject @Inject constructor(
         _selectedSoldier.value = soldier
         _selectedId.value = soldier.id
         dataUpdated()
+    }
+
+    fun changeExpansion() {
+        val expanded: Boolean = _expanded.value ?: false
+        _expanded.value = !expanded
     }
 
     private fun dataUpdated() {

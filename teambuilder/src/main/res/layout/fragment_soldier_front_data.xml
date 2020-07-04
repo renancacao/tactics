@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/teamBuilderBackColor"
-        app:showIfExists="@{viewmodel.selectedSoldier}"
+        android:onClick="@{() -> viewmodel.changeExpansion()}"
         tools:ignore="SmallSp">
 
         <ImageView
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/expand"
-            android:src="@drawable/ic_baseline_arrow_drop_up_24"
+            app:expandedIcon="@{viewmodel.isExpanded()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,8 +39,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgArrow"
-            tools:visibility="visible">
+            app:layout_constraintTop_toBottomOf="@+id/imgArrow">
 
             <ImageView
                 android:id="@+id/imgPortrait"
