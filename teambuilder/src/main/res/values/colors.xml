@@ -6,4 +6,6 @@
     <color name="hpColor">#E53935</color>
     <color name="mpColor">#1E88E5</color>
     <color name="ctColor">#43A047</color>
+    <color name="statsTextColor">#000000</color>
+
 </resources>

@@ -29,8 +29,10 @@
             android:background="@drawable/portrait_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
             tools:visibility="visible">
 
             <TextView
@@ -279,6 +281,302 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent=".5" />
+
+            <ImageView
+                android:id="@+id/imgSword"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:importantForAccessibility="no"
+                android:src="@drawable/sword"
+                app:layout_constraintBottom_toBottomOf="@+id/textCurrentPerR"
+                app:layout_constraintStart_toEndOf="@+id/guideline3"
+                app:layout_constraintTop_toTopOf="@+id/textCurrentPerR" />
+
+            <ImageView
+                android:id="@+id/imgStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:importantForAccessibility="no"
+                android:src="@drawable/staff"
+                app:layout_constraintBottom_toBottomOf="@+id/textCurrentPerL"
+                app:layout_constraintEnd_toEndOf="@+id/imgSword"
+                app:layout_constraintStart_toEndOf="@+id/guideline3"
+                app:layout_constraintTop_toTopOf="@+id/textCurrentPerL" />
+
+            <TextView
+                android:id="@+id/textAtk"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="13dp"
+                android:text="@string/atk"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toStartOf="@+id/textCEV"
+                app:layout_constraintStart_toEndOf="@+id/imgSword"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textCurrentAtkSword"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgSword"
+                app:layout_constraintEnd_toEndOf="@+id/textAtk"
+                app:layout_constraintHorizontal_bias=".6"
+                app:layout_constraintStart_toStartOf="@+id/textAtk"
+                app:layout_constraintTop_toTopOf="@+id/imgSword"
+                tools:text="00" />
+
+            <TextView
+                android:id="@+id/textBar1"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bar"
+                app:layout_constraintBottom_toBottomOf="@+id/imgSword"
+                app:layout_constraintEnd_toStartOf="@+id/textCEV"
+                app:layout_constraintStart_toEndOf="@+id/textAtk"
+                app:layout_constraintTop_toTopOf="@+id/imgSword" />
+
+            <TextView
+                android:id="@+id/textBar4"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bar"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStaff"
+                app:layout_constraintEnd_toStartOf="@+id/textCEV"
+                app:layout_constraintStart_toEndOf="@+id/textAtk"
+                app:layout_constraintTop_toTopOf="@+id/imgStaff" />
+
+            <TextView
+                android:id="@+id/textCurrentAtkStaff"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStaff"
+                app:layout_constraintEnd_toEndOf="@+id/textCurrentAtkSword"
+                app:layout_constraintStart_toStartOf="@+id/textCurrentAtkSword"
+                app:layout_constraintTop_toTopOf="@+id/imgStaff"
+                tools:text="00" />
+
+            <TextView
+                android:id="@+id/textCEV"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="13dp"
+                android:text="@string/c_ev"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toStartOf="@+id/textSEV"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textPerCEVSword"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/percent"
+                app:layout_constraintBottom_toBottomOf="@+id/imgSword"
+                app:layout_constraintEnd_toEndOf="@+id/textCEV"
+                app:layout_constraintTop_toTopOf="@+id/imgSword" />
+
+            <TextView
+                android:id="@+id/textBar2"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bar"
+                app:layout_constraintBottom_toBottomOf="@+id/imgSword"
+                app:layout_constraintEnd_toStartOf="@+id/textSEV"
+                app:layout_constraintStart_toEndOf="@+id/textCEV"
+                app:layout_constraintTop_toTopOf="@+id/imgSword" />
+
+            <TextView
+                android:id="@+id/textBar5"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bar"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStaff"
+                app:layout_constraintEnd_toStartOf="@+id/textSEV"
+                app:layout_constraintStart_toEndOf="@+id/textCEV"
+                app:layout_constraintTop_toTopOf="@+id/imgStaff" />
+
+            <TextView
+                android:id="@+id/textCurrentCEVSword"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgSword"
+                app:layout_constraintEnd_toStartOf="@+id/textPerCEVSword"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textCEV"
+                app:layout_constraintTop_toTopOf="@+id/imgSword"
+                tools:text="00" />
+
+            <TextView
+                android:id="@+id/textPerCEVStaff"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/percent"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStaff"
+                app:layout_constraintEnd_toEndOf="@+id/textPerCEVSword"
+                app:layout_constraintTop_toTopOf="@+id/imgStaff" />
+
+            <TextView
+                android:id="@+id/textCurrentCEVStaff"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStaff"
+                app:layout_constraintEnd_toStartOf="@+id/textPerCEVStaff"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textCurrentCEVSword"
+                app:layout_constraintTop_toTopOf="@+id/imgStaff"
+                tools:text="00" />
+
+            <TextView
+                android:id="@+id/textSEV"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="13dp"
+                android:text="@string/s_ev"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toStartOf="@+id/textAEV"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textPerSEVSword"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/percent"
+                app:layout_constraintBottom_toBottomOf="@+id/imgSword"
+                app:layout_constraintEnd_toEndOf="@+id/textSEV"
+                app:layout_constraintTop_toTopOf="@+id/imgSword" />
+
+            <TextView
+                android:id="@+id/textBar3"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bar"
+                app:layout_constraintBottom_toBottomOf="@+id/imgSword"
+                app:layout_constraintEnd_toStartOf="@+id/textAEV"
+                app:layout_constraintStart_toEndOf="@+id/textSEV"
+                app:layout_constraintTop_toTopOf="@+id/imgSword" />
+
+            <TextView
+                android:id="@+id/textBar6"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bar"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStaff"
+                app:layout_constraintEnd_toStartOf="@+id/textAEV"
+                app:layout_constraintStart_toEndOf="@+id/textSEV"
+                app:layout_constraintTop_toTopOf="@+id/imgStaff" />
+
+            <TextView
+                android:id="@+id/textCurrentSEVSword"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgSword"
+                app:layout_constraintEnd_toStartOf="@+id/textPerSEVSword"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textSEV"
+                app:layout_constraintTop_toTopOf="@+id/imgSword"
+                tools:text="00" />
+
+            <TextView
+                android:id="@+id/textPerSEVStaff"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/percent"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStaff"
+                app:layout_constraintEnd_toEndOf="@+id/textPerSEVSword"
+                app:layout_constraintTop_toTopOf="@+id/imgStaff" />
+
+            <TextView
+                android:id="@+id/textCurrentSEVStaff"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStaff"
+                app:layout_constraintEnd_toStartOf="@+id/textPerSEVStaff"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textCurrentSEVSword"
+                app:layout_constraintTop_toTopOf="@+id/imgStaff"
+                tools:text="00" />
+
+            <TextView
+                android:id="@+id/textAEV"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/a_ev"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textPerAEVSword"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/percent"
+                app:layout_constraintBottom_toBottomOf="@+id/imgSword"
+                app:layout_constraintEnd_toEndOf="@+id/textAEV"
+                app:layout_constraintTop_toTopOf="@+id/imgSword" />
+
+            <TextView
+                android:id="@+id/textCurrentAEVSword"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgSword"
+                app:layout_constraintEnd_toStartOf="@+id/textPerAEVSword"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textAEV"
+                app:layout_constraintTop_toTopOf="@+id/imgSword"
+                tools:text="00" />
+
+            <TextView
+                android:id="@+id/textPerAEVStaff"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/percent"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStaff"
+                app:layout_constraintEnd_toEndOf="@+id/textPerAEVSword"
+                app:layout_constraintTop_toTopOf="@+id/imgStaff" />
+
+            <TextView
+                android:id="@+id/textCurrentAEVStaff"
+                style="@style/StatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgStaff"
+                app:layout_constraintEnd_toStartOf="@+id/textPerAEVStaff"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textCurrentAEVSword"
+                app:layout_constraintTop_toTopOf="@+id/imgStaff"
+                tools:text="00" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

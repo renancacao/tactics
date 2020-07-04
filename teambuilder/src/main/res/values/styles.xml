@@ -53,10 +53,13 @@
     <style name="StatsText">
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/statsTextColor</item>
     </style>
 
     <style name="FrontStats">
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">italic</item>
     </style>
+
+
 </resources>

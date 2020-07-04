@@ -12,7 +12,7 @@
     <string name="zodiac">zodiac</string>
     <string name="base_ct">100</string>
     <string name="expand">Expandir</string>
-    <string name="stats_dots">...</string>
+    <string name="stats_dots">…</string>
     <string name="speed">Speed</string>
     <string name="jump">Jump</string>
     <string name="move">Move</string>
@@ -21,4 +21,8 @@
     <string name="l">L</string>
     <string name="percent">%</string>
     <string name="bar">/</string>
+    <string name="s_ev">S-EV</string>
+    <string name="a_ev">A-EV</string>
+    <string name="atk">ATK</string>
+    <string name="c_ev">C-EV</string>
 </resources>
