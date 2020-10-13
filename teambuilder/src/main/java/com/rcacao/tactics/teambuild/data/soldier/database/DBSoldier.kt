@@ -2,9 +2,9 @@ package com.rcacao.tactics.teambuild.data.soldier.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.rcacao.tactics.core.domain.job.JobId
-import com.rcacao.tactics.core.domain.soldier.Sex
-import com.rcacao.tactics.core.domain.zodiac.Zodiac
+import com.rcacao.tactics.core.data.job.JobId
+import com.rcacao.tactics.core.data.soldier.Sex
+import com.rcacao.tactics.core.data.zodiac.Zodiac
 
 @Entity(tableName = "soldiersData")
 class DBSoldier(

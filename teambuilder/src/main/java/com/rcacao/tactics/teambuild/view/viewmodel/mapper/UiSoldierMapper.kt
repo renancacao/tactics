@@ -1,6 +1,6 @@
 package com.rcacao.tactics.teambuild.view.viewmodel.mapper
 
-import com.rcacao.tactics.core.data.soldier.model.Soldier
+import com.rcacao.tactics.core.data.soldier.Soldier
 import com.rcacao.tactics.resources.ResourceProvider
 import com.rcacao.tactics.teambuild.view.model.UiSoldier
 import com.rcacao.tactics.teambuild.view.ui.model.AddItem

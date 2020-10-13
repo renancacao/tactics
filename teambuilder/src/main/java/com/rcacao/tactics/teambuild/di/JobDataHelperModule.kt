@@ -1,9 +1,5 @@
 package com.rcacao.tactics.teambuild.di
 
-import com.rcacao.tactics.teambuild.data.job.datasource.ArcherJobDataHelper
-import com.rcacao.tactics.teambuild.data.job.datasource.ChemistJobDataHelper
-import com.rcacao.tactics.teambuild.data.job.datasource.JobDataHelper
-import com.rcacao.tactics.teambuild.data.job.datasource.SquireJobDataHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

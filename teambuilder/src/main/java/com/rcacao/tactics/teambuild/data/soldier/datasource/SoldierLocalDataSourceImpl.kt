@@ -1,6 +1,6 @@
 package com.rcacao.tactics.teambuild.data.soldier.datasource
 
-import com.rcacao.tactics.core.data.Result
+import com.rcacao.tactics.core.domain.Result
 import com.rcacao.tactics.teambuild.data.soldier.database.DBSoldier
 import com.rcacao.tactics.teambuild.data.soldier.database.SoldiersDataBase
 import javax.inject.Inject

@@ -1,11 +1,11 @@
 package com.rcacao.tactics.teambuild.data.soldier
 
-import com.rcacao.tactics.core.data.Result
-import com.rcacao.tactics.core.data.job.model.Job
-import com.rcacao.tactics.core.data.soldier.model.RawStats
-import com.rcacao.tactics.core.data.soldier.model.Soldier
-import com.rcacao.tactics.core.data.soldier.model.SoldierStats
-import com.rcacao.tactics.teambuild.data.job.datasource.JobDataSource
+import com.rcacao.tactics.core.data.job.datasource.JobDataSource
+import com.rcacao.tactics.core.data.job.jobs.Job
+import com.rcacao.tactics.core.data.soldier.RawStats
+import com.rcacao.tactics.core.data.soldier.Soldier
+import com.rcacao.tactics.core.data.soldier.SoldierStats
+import com.rcacao.tactics.core.domain.Result
 import com.rcacao.tactics.teambuild.data.soldier.database.DBSoldier
 import com.rcacao.tactics.teambuild.data.soldier.datasource.SoldierGameDataSource
 import com.rcacao.tactics.teambuild.data.soldier.datasource.SoldierLocalDataSource
@@ -63,7 +63,13 @@ class SoldierRepositoryImpl @Inject constructor(
                 dbSoldier.rawPMgk
             ),
             job,
-            SoldierStats(dbSoldier.hp, dbSoldier.mp, dbSoldier.sp, dbSoldier.pa, dbSoldier.ma)
+            SoldierStats(
+                dbSoldier.hp,
+                dbSoldier.mp,
+                dbSoldier.sp,
+                dbSoldier.pa,
+                dbSoldier.ma
+            )
         )
 
     override suspend fun saveSoldier(soldier: Soldier): Result<Long> =

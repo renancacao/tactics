@@ -1,7 +1,7 @@
 package com.rcacao.tactics.teambuild.di
 
-import com.rcacao.tactics.teambuild.data.job.datasource.JobDataSource
-import com.rcacao.tactics.teambuild.data.job.datasource.JobGameDataSourceImpl
+import com.rcacao.tactics.core.data.job.datasource.JobDataSource
+import com.rcacao.tactics.core.data.job.datasource.JobGameDataSourceImpl
 import com.rcacao.tactics.teambuild.data.soldier.datasource.SoldierGameDataSource
 import com.rcacao.tactics.teambuild.data.soldier.datasource.SoldierGameDataSourceImpl
 import com.rcacao.tactics.teambuild.data.soldier.datasource.SoldierLocalDataSource

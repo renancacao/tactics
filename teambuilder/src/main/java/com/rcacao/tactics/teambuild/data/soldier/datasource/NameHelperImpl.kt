@@ -1,6 +1,6 @@
 package com.rcacao.tactics.teambuild.data.soldier.datasource
 
-import com.rcacao.tactics.core.domain.soldier.Sex
+import com.rcacao.tactics.core.data.soldier.Sex
 import javax.inject.Inject
 import kotlin.random.Random
 

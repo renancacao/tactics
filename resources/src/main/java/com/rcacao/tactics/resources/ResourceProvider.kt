@@ -1,8 +1,8 @@
 package com.rcacao.tactics.resources
 
-import com.rcacao.tactics.core.domain.job.JobId
-import com.rcacao.tactics.core.domain.soldier.Sex
-import com.rcacao.tactics.core.domain.zodiac.Zodiac
+import com.rcacao.tactics.core.data.job.JobId
+import com.rcacao.tactics.core.data.soldier.Sex
+import com.rcacao.tactics.core.data.zodiac.Zodiac
 
 class ResourceProvider {
 

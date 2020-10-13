@@ -1,7 +1,7 @@
 package com.rcacao.tactics.teambuild.domain.soldier
 
-import com.rcacao.tactics.core.data.Result
-import com.rcacao.tactics.core.data.job.model.Job
+import com.rcacao.tactics.core.data.job.jobs.Job
+import com.rcacao.tactics.core.domain.Result
 import com.rcacao.tactics.teambuild.data.job.JobRepository
 import javax.inject.Inject
 

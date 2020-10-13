@@ -5,9 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rcacao.tactics.core.data.Result
-import com.rcacao.tactics.core.data.soldier.model.Soldier
+import com.rcacao.tactics.core.data.soldier.Soldier
 import com.rcacao.tactics.core.domain.Event
+import com.rcacao.tactics.core.domain.Result
 import com.rcacao.tactics.teambuild.domain.soldier.AddNewSoldierUseCase
 import com.rcacao.tactics.teambuild.domain.soldier.GetSavedSoldiersUseCase
 import com.rcacao.tactics.teambuild.view.model.UiSoldier
