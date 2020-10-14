@@ -1,10 +1,11 @@
-package com.rcacao.tactics.teambuild.data.soldier.datasource
+package com.rcacao.tactics.teambuild.data.soldier.datasource.helpers
 
 import com.rcacao.tactics.core.data.soldier.Sex
 import javax.inject.Inject
 import kotlin.random.Random
 
-class NameHelperImpl @Inject constructor() : NameHelper {
+class NameHelperImpl @Inject constructor() :
+    NameHelper {
 
     override fun getRandomName(sex: Sex): String {
         return when (sex) {

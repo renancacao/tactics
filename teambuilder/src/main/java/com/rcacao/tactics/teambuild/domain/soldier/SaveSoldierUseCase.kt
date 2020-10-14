@@ -2,7 +2,7 @@ package com.rcacao.tactics.teambuild.domain.soldier
 
 import com.rcacao.tactics.core.data.soldier.Soldier
 import com.rcacao.tactics.core.domain.Result
-import com.rcacao.tactics.teambuild.data.soldier.SoldierRepository
+import com.rcacao.tactics.teambuild.data.soldier.repository.SoldierRepository
 import javax.inject.Inject
 
 class SaveSoldierUseCase @Inject constructor(private val soldierRepository: SoldierRepository) {

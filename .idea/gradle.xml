@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/resources" />
+            <option value="$PROJECT_DIR$/storage" />
             <option value="$PROJECT_DIR$/teambuilder" />
           </set>
         </option>

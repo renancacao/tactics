@@ -6,5 +6,5 @@ import com.rcacao.tactics.teambuild.data.job.JobRepository
 import javax.inject.Inject
 
 class InitialJobUseCase @Inject constructor(private val jobRepository: JobRepository) {
-    suspend operator fun invoke(): Result<Job> = jobRepository.getInitialJob()
+    suspend operator fun invoke(): Result<Job> = jobRepository.job()
 }

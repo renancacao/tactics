@@ -1,11 +1,11 @@
-package com.rcacao.tactics.teambuild.data.soldier.database
+package com.rcacao.tactics.storage.data.soldier.database
 
 import androidx.room.TypeConverter
 import com.rcacao.tactics.core.data.job.JobId
 import com.rcacao.tactics.core.data.soldier.Sex
 import com.rcacao.tactics.core.data.zodiac.Zodiac
 
-class Converters {
+internal class Converters {
     @TypeConverter
     fun jobIdToInt(jobId: JobId) = jobId.ordinal
 

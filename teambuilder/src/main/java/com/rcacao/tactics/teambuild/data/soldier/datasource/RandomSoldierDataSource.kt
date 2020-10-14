@@ -4,6 +4,6 @@ import com.rcacao.tactics.core.data.job.jobs.Job
 import com.rcacao.tactics.core.data.soldier.Soldier
 import com.rcacao.tactics.core.domain.Result
 
-interface SoldierGameDataSource {
+interface RandomSoldierDataSource {
     suspend fun randomSoldier(job: Job): Result<Soldier>
 }

@@ -1,4 +1,4 @@
-package com.rcacao.tactics.teambuild.data.soldier.database
+package com.rcacao.tactics.storage.data.soldier.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -6,9 +6,10 @@ import com.rcacao.tactics.core.data.job.JobId
 import com.rcacao.tactics.core.data.soldier.Sex
 import com.rcacao.tactics.core.data.zodiac.Zodiac
 
-@Entity(tableName = "soldiersData")
-class DBSoldier(
-    @PrimaryKey(autoGenerate = true) var id: Long?,
+@Entity(tableName = "tab_soldiers")
+class SoldierDTO(
+    @PrimaryKey(autoGenerate = true)
+    var id: Long?,
     val name: String,
     val zodiac: Zodiac,
     val sex: Sex,

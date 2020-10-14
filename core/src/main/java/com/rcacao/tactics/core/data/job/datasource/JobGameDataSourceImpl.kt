@@ -10,7 +10,7 @@ class JobGameDataSourceImpl : JobDataSource {
 
     override fun getJobs(): List<Job> = listOf(Squire, Chemist, Archer)
 
-    override fun getJob(jobId: JobId): Job = when (jobId) {
+    override fun job(jobId: JobId): Job = when (jobId) {
         JobId.SQUIRE -> Squire
         JobId.CHEMIST -> Chemist
         JobId.ARCHER -> Archer

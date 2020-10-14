@@ -6,14 +6,17 @@ import com.rcacao.tactics.core.data.soldier.Sex
 import com.rcacao.tactics.core.data.soldier.Soldier
 import com.rcacao.tactics.core.data.zodiac.Zodiac
 import com.rcacao.tactics.core.domain.Result
+import com.rcacao.tactics.teambuild.data.soldier.datasource.helpers.NameHelper
+import com.rcacao.tactics.teambuild.data.soldier.datasource.helpers.RawStatsHelper
+import com.rcacao.tactics.teambuild.data.soldier.datasource.helpers.StatsCalculatorHelper
 import javax.inject.Inject
 import kotlin.random.Random
 
-class SoldierGameDataSourceImpl @Inject constructor(
+class RandomSoldierDataSourceImpl @Inject constructor(
     private val nameHelper: NameHelper,
     private val rawStatsHelper: RawStatsHelper,
     private val statsCalculatorHelper: StatsCalculatorHelper
-) : SoldierGameDataSource {
+) : RandomSoldierDataSource {
 
     private val initBraveAndFaith: Int = 40
     private val finalBraveAndFaith: Int = 70

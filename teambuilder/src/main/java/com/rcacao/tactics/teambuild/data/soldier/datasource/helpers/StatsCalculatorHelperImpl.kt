@@ -1,4 +1,4 @@
-package com.rcacao.tactics.teambuild.data.soldier.datasource
+package com.rcacao.tactics.teambuild.data.soldier.datasource.helpers
 
 import com.rcacao.tactics.core.data.job.jobs.Job
 import com.rcacao.tactics.core.data.soldier.RawStats
@@ -15,8 +15,10 @@ class StatsCalculatorHelperImpl @Inject constructor() :
     * em questão e depois aumentou seu level até 50
      */
 
-    private val divisor = 1638400
-    private val currentLevel = 50
+    companion object {
+        private const val DIVISOR = 1638400
+        private const val CURRENT_LEVEL = 50
+    }
 
     override fun calculateStats(rawStats: RawStats, job: Job): SoldierStats =
         SoldierStats(
@@ -29,11 +31,11 @@ class StatsCalculatorHelperImpl @Inject constructor() :
 
     private fun calculate(rawStat: Int, jobMultiplier: Int, c: Int): Int =
         max(
-            ((rawStat + getLevelBonus(rawStat, c, currentLevel)) * jobMultiplier) / divisor,
+            ((rawStat + getLevelBonus(rawStat, c)) * jobMultiplier) / DIVISOR,
             1
         )
 
-    private fun getLevelBonus(rawStat: Int, c: Int, level: Int): Int =
-        (rawStat / (c + level - 1)) * level
+    private fun getLevelBonus(rawStat: Int, c: Int): Int =
+        (rawStat / (c + CURRENT_LEVEL - 1)) * CURRENT_LEVEL
 
 }

@@ -1,6 +1,6 @@
 package com.rcacao.tactics.teambuild.di
 
-import com.rcacao.tactics.teambuild.data.soldier.datasource.*
+import com.rcacao.tactics.teambuild.data.soldier.datasource.helpers.*
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

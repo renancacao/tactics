@@ -5,5 +5,5 @@ import com.rcacao.tactics.core.data.job.jobs.Job
 
 interface JobDataSource {
     fun getJobs(): List<Job>
-    fun getJob(jobId: JobId): Job
+    fun job(jobId: JobId): Job
 }
